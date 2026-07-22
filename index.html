@@ -46,6 +46,7 @@
   .featured-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; flex-wrap:wrap;}
   .featured-head h2{margin:0; font-size:20px;}
   .featured-head .badge{background:rgba(255,182,72,.15); color:var(--amber); font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;}
+  .featured-head .badge.blue{background:rgba(79,140,255,.15); color:var(--blue);}
   .featured .desc{color:var(--muted); font-size:13px; margin-bottom:18px;}
   .featured-body{display:grid; grid-template-columns:1.1fr 1.4fr; gap:28px; align-items:center;}
   .dexp-total{text-align:center; margin-top:10px;}
@@ -74,33 +75,33 @@
 <body>
 
 <h1>Dashboard Financeiro — Business Connection</h1>
-<div class="sub">Fluxo de Caixa &amp; DRE · Período com movimento: Março a Junho · Valores em US$</div>
+<div class="sub">Fluxo de Caixa &amp; DRE · Período com movimento: Janeiro a Junho · Valores em $</div>
 
 <div class="kpis">
   <div class="kpi">
     <div class="label">Receita Bruta (DRE)</div>
-    <div class="value">$142.766,92</div>
+    <div class="value">$ 213.292,48</div>
     <div class="note">Acumulado no período</div>
   </div>
   <div class="kpi">
     <div class="label">Entradas de Caixa</div>
-    <div class="value">$136.147,35</div>
+    <div class="value">$ 218.270,57</div>
     <div class="note">Recebido de fato</div>
   </div>
   <div class="kpi">
     <div class="label">Lucro Líquido (DRE)</div>
-    <div class="value pos">$55.466,91</div>
-    <div class="note">Margem líquida média 40,1%</div>
+    <div class="value pos">$ 101.860,36</div>
+    <div class="note">Margem líquida média 48,7%</div>
   </div>
   <div class="kpi">
     <div class="label">Saldo de Caixa Final</div>
-    <div class="value neg">-$17.608,03</div>
+    <div class="value neg">-$ 22.298,91</div>
     <div class="note">Caixa acumulado no período</div>
   </div>
   <div class="kpi">
     <div class="label">Retiradas de Sócios</div>
-    <div class="value" style="color:var(--amber)">$76.877,94</div>
-    <div class="note">46,6% do total de saídas</div>
+    <div class="value" style="color:var(--amber)">$ 112.781,27</div>
+    <div class="note">46,9% do total de saídas</div>
   </div>
 </div>
 
@@ -108,7 +109,7 @@
   <div class="icon">⚠️</div>
   <div>
     <h3>O lucro no papel não é o dinheiro no caixa</h3>
-    <p>A empresa é <strong>lucrativa na operação</strong> — a DRE mostra $55.466,91 de lucro líquido acumulado (margem de 40,1%) entre março e junho. Mas o caixa fechou o período <strong>negativo em $17.608,03</strong>. A diferença não vem de despesa operacional: as <strong>Retiradas dos sócios somaram $76.877,94</strong> (47% de tudo que saiu do caixa) — mais do que o dobro do lucro líquido gerado no mesmo período. Ou seja, está saindo do caixa mais do que a operação está gerando de resultado, o que drena o saldo mês a mês mesmo com a empresa "dando lucro".</p>
+    <p>Com janeiro e fevereiro agora completos, a empresa segue <strong>lucrativa na operação</strong> — a DRE mostra $ 101.860,36 de lucro líquido acumulado (margem de 48,7%) no semestre. Mas o caixa fechou o período <strong>negativo em $ 22.298,91</strong>. A diferença não vem de despesa operacional: as <strong>Retiradas dos sócios somaram $ 112.781,27</strong> — 46,9% de tudo que saiu do caixa, e um valor que já supera o próprio lucro líquido gerado no período em $ 10.920,91. Ou seja, no acumulado do semestre já saiu mais dinheiro do caixa via retirada do que a operação conseguiu gerar de resultado.</p>
   </div>
 </div>
 
@@ -127,15 +128,80 @@
 
 <div class="featured">
   <div class="featured-head">
+    <h2>Faturamento por Serviço</h2>
+    <span class="badge blue">$ 217.101,48 em receita de serviços · Jan–Jun</span>
+  </div>
+  <div class="desc">De onde vem o dinheiro: apenas dois produtos — Master Business (Mentoria) e Consultoria Individual — respondem por quase 9 em cada 10 dólares faturados.</div>
+  <div class="featured-body">
+    <div>
+      <div class="chart-wrap" style="height:320px;"><canvas id="chartServicos"></canvas></div>
+      <div class="dexp-total">
+        <div class="n">$ 217.101,48</div>
+        <div class="l">Total de Receita de Serviços</div>
+      </div>
+    </div>
+    <div class="dexp-list">
+      
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#4f8cff"></span>
+          <span class="dexp-label">Master Business - Mentoria</span>
+          <span class="dexp-val">$ 124.384,38</span>
+          <span class="dexp-pct">57.3%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:57.29%; background:#4f8cff"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#33d19b"></span>
+          <span class="dexp-label">Consultoria Individual</span>
+          <span class="dexp-val">$ 67.418,48</span>
+          <span class="dexp-pct">31.1%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:31.05%; background:#33d19b"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#ffb648"></span>
+          <span class="dexp-label">Eventos</span>
+          <span class="dexp-val">$ 16.501,36</span>
+          <span class="dexp-pct">7.6%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:7.60%; background:#ffb648"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#a78bfa"></span>
+          <span class="dexp-label">Processo de Coaching</span>
+          <span class="dexp-val">$ 8.500,25</span>
+          <span class="dexp-pct">3.9%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:3.92%; background:#a78bfa"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#ff6b6b"></span>
+          <span class="dexp-label">RaioX Financeiro</span>
+          <span class="dexp-val">$ 297,01</span>
+          <span class="dexp-pct">0.1%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.14%; background:#ff6b6b"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="featured">
+  <div class="featured-head">
     <h2>Para Onde Foi o Caixa</h2>
-    <span class="badge">$ 164.973,28 em saídas · Mar–Jun</span>
+    <span class="badge">$ 240.569,47 em saídas · Jan–Jun</span>
   </div>
   <div class="desc">Composição completa das saídas de caixa no período. A Retirada de Sócios sozinha é quase o dobro da segunda maior categoria (Pessoal) e responde por quase metade de tudo que saiu do caixa.</div>
   <div class="featured-body">
     <div>
       <div class="chart-wrap" style="height:320px;"><canvas id="chartDespesas"></canvas></div>
       <div class="dexp-total">
-        <div class="n">$ 164.973,28</div>
+        <div class="n">$ 240.569,47</div>
         <div class="l">Total de Saídas de Caixa</div>
       </div>
     </div>
@@ -145,82 +211,82 @@
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#ffb648"></span>
           <span class="dexp-label">Retirada de Sócios</span>
-          <span class="dexp-val">$ 76.877,94</span>
-          <span class="dexp-pct">46.6%</span>
+          <span class="dexp-val">$ 112.781,27</span>
+          <span class="dexp-pct">46.9%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:46.60%; background:#ffb648"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:46.88%; background:#ffb648"></div></div>
       </div>
       <div class="dexp-row">
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#4f8cff"></span>
           <span class="dexp-label">Pagamento de Pessoal</span>
-          <span class="dexp-val">$ 45.835,02</span>
-          <span class="dexp-pct">27.8%</span>
+          <span class="dexp-val">$ 59.037,02</span>
+          <span class="dexp-pct">24.5%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:27.78%; background:#4f8cff"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:24.54%; background:#4f8cff"></div></div>
       </div>
       <div class="dexp-row">
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#a78bfa"></span>
           <span class="dexp-label">Despesas de Marketing</span>
-          <span class="dexp-val">$ 20.705,27</span>
-          <span class="dexp-pct">12.6%</span>
+          <span class="dexp-val">$ 22.314,61</span>
+          <span class="dexp-pct">9.3%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:12.55%; background:#a78bfa"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#33d19b"></span>
-          <span class="dexp-label">Serviços Prestados</span>
-          <span class="dexp-val">$ 8.380,59</span>
-          <span class="dexp-pct">5.1%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:5.08%; background:#33d19b"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#ff6b6b"></span>
-          <span class="dexp-label">Outras Despesas</span>
-          <span class="dexp-val">$ 7.042,99</span>
-          <span class="dexp-pct">4.3%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:4.27%; background:#ff6b6b"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#5eead4"></span>
-          <span class="dexp-label">Despesas Administrativas</span>
-          <span class="dexp-val">$ 3.942,40</span>
-          <span class="dexp-pct">2.4%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:2.39%; background:#5eead4"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:9.28%; background:#a78bfa"></div></div>
       </div>
       <div class="dexp-row">
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#f472b6"></span>
           <span class="dexp-label">Impostos</span>
-          <span class="dexp-val">$ 1.096,55</span>
-          <span class="dexp-pct">0.7%</span>
+          <span class="dexp-val">$ 16.534,55</span>
+          <span class="dexp-pct">6.9%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.66%; background:#f472b6"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:6.87%; background:#f472b6"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#33d19b"></span>
+          <span class="dexp-label">Serviços Prestados</span>
+          <span class="dexp-val">$ 11.817,79</span>
+          <span class="dexp-pct">4.9%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:4.91%; background:#33d19b"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#ff6b6b"></span>
+          <span class="dexp-label">Outras Despesas</span>
+          <span class="dexp-val">$ 9.002,25</span>
+          <span class="dexp-pct">3.7%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:3.74%; background:#ff6b6b"></div></div>
+      </div>
+      <div class="dexp-row">
+        <div class="dexp-top">
+          <span class="dexp-dot" style="background:#5eead4"></span>
+          <span class="dexp-label">Despesas Administrativas</span>
+          <span class="dexp-val">$ 5.668,21</span>
+          <span class="dexp-pct">2.4%</span>
+        </div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:2.36%; background:#5eead4"></div></div>
       </div>
       <div class="dexp-row">
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#94a3b8"></span>
           <span class="dexp-label">Despesas Comerciais</span>
-          <span class="dexp-val">$ 929,82</span>
-          <span class="dexp-pct">0.6%</span>
+          <span class="dexp-val">$ 3.241,92</span>
+          <span class="dexp-pct">1.3%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.56%; background:#94a3b8"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:1.35%; background:#94a3b8"></div></div>
       </div>
       <div class="dexp-row">
         <div class="dexp-top">
           <span class="dexp-dot" style="background:#64748b"></span>
           <span class="dexp-label">Despesas Financeira</span>
-          <span class="dexp-val">$ 162,70</span>
+          <span class="dexp-val">$ 171,85</span>
           <span class="dexp-pct">0.1%</span>
         </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.10%; background:#64748b"></div></div>
+        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.07%; background:#64748b"></div></div>
       </div>
     </div>
   </div>
@@ -244,22 +310,22 @@
   <div class="desc">Fluxo de Caixa x DRE lado a lado</div>
   <table>
     <thead>
-      <tr><th>Métrica</th><th>Março</th><th>Abril</th><th>Maio</th><th>Junho</th><th>Total</th></tr>
+      <tr><th>Métrica</th><th>Janeiro</th><th>Fevereiro</th><th>Março</th><th>Abril</th><th>Maio</th><th>Junho</th><th>Total</th></tr>
     </thead>
     <tbody>
-      <tr><td>Entradas de Caixa</td><td>28.287,73</td><td>38.172,20</td><td>35.958,09</td><td>44.947,24</td><td>136.147,35</td></tr>
-      <tr><td>Saídas de Caixa</td><td>36.110,53</td><td>43.032,60</td><td>40.906,94</td><td>44.923,21</td><td>164.973,29</td></tr>
-      <tr><td>Fluxo de Caixa do Mês</td><td class="neg">-7.822,80</td><td class="neg">-4.860,40</td><td class="neg">-4.948,85</td><td class="pos">24,03</td><td class="neg">-28.825,94</td></tr>
-      <tr><td>Receita Líquida (DRE)</td><td>27.180,10</td><td>36.889,39</td><td>34.803,99</td><td>39.548,85</td><td>138.422,33</td></tr>
-      <tr><td>EBITDA (DRE)</td><td>8.017,60</td><td>16.096,65</td><td>16.579,32</td><td>14.437,09</td><td>55.130,66</td></tr>
-      <tr><td>Lucro Líquido (DRE)</td><td class="pos">7.950,55</td><td class="pos">16.266,79</td><td class="pos">16.633,78</td><td class="pos">14.615,79</td><td class="pos">55.466,91</td></tr>
-      <tr><td>Retirada de Sócios</td><td>15.773,36</td><td>21.127,20</td><td>21.582,63</td><td>18.394,76</td><td>76.877,94</td></tr>
-      <tr><td>Gap Lucro − Retirada</td><td class="neg">-7.822,80</td><td class="neg">-4.860,41</td><td class="neg">-4.948,85</td><td class="neg">-3.778,97</td><td class="neg">-21.411,03</td></tr>
+      <tr><td>Entradas de Caixa</td><td>33.914,17</td><td>36.991,14</td><td>28.287,73</td><td>38.172,20</td><td>35.958,09</td><td>44.947,24</td><td>218.270,57</td></tr>
+      <tr><td>Saídas de Caixa</td><td>45.166,84</td><td>30.429,35</td><td>36.110,53</td><td>43.032,60</td><td>40.906,94</td><td>44.923,21</td><td>240.569,47</td></tr>
+      <tr><td>Fluxo de Caixa do Mês</td><td class="neg">-11.252,67</td><td class="pos">6.561,79</td><td class="neg">-7.822,80</td><td class="neg">-4.860,40</td><td class="neg">-4.948,85</td><td class="pos">24,03</td><td class="neg">-22.298,90</td></tr>
+      <tr><td>Receita Líquida (DRE)</td><td>33.704,78</td><td>36.820,78</td><td>27.180,10</td><td>36.889,39</td><td>34.803,99</td><td>39.548,85</td><td>208.947,89</td></tr>
+      <tr><td>EBITDA (DRE)</td><td>22.219,64</td><td>23.803,21</td><td>8.017,60</td><td>16.096,65</td><td>16.579,32</td><td>14.437,09</td><td>101.153,51</td></tr>
+      <tr><td>Lucro Líquido (DRE)</td><td class="pos">22.429,03</td><td class="pos">23.964,42</td><td class="pos">7.950,55</td><td class="pos">16.266,79</td><td class="pos">16.633,78</td><td class="pos">14.615,79</td><td class="pos">101.860,36</td></tr>
+      <tr><td>Retirada de Sócios</td><td>18.500,70</td><td>17.402,63</td><td>15.773,36</td><td>21.127,20</td><td>21.582,63</td><td>18.394,76</td><td>112.781,27</td></tr>
+      <tr><td>Gap Lucro − Retirada</td><td class="pos">3.928,33</td><td class="pos">6.561,79</td><td class="neg">-7.822,81</td><td class="neg">-4.860,41</td><td class="neg">-4.948,85</td><td class="neg">-3.778,97</td><td class="neg">-10.920,91</td></tr>
     </tbody>
   </table>
 </div>
 
-<div class="footer">Dashboard gerado a partir de "Business Connection - Fluxo de caixa.xlsx" · abas Fluxo de Caixa e DRE · Jul/Ago-Dez sem movimento registrado no arquivo</div>
+<div class="footer">Dashboard gerado a partir de "Business Connection - Fluxo de caixa.xlsx" (atualizado) · abas Fluxo de Caixa Analítico e DRE · Jul-Dez sem movimento registrado no arquivo</div>
 
 <script>
 /*!
@@ -279,7 +345,7 @@
 
 </script>
 <script>
-const months = ['Mar','Abr','Mai','Jun'];
+const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
 const COLORS = { green:'#33d19b', red:'#ff6b6b', blue:'#4f8cff', amber:'#ffb648', purple:'#a78bfa', muted:'#98a2b8' };
 Chart.defaults.color = '#c7cee0';
 Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
@@ -290,9 +356,9 @@ new Chart(document.getElementById('chartFluxo'), {
   data: {
     labels: months,
     datasets: [
-      { label:'Entradas', data:[28287.73,38172.20,35958.09,44947.24], backgroundColor: COLORS.green, borderRadius:5 },
-      { label:'Saídas', data:[36110.53,43032.60,40906.94,44923.21], backgroundColor: COLORS.red, borderRadius:5 },
-      { label:'Resultado do Mês', data:[-7822.80,-4860.40,-4948.85,24.03], type:'line', borderColor: COLORS.amber, backgroundColor: COLORS.amber, tension:.3, yAxisID:'y' }
+      { label:'Entradas', data:[33914.17, 36991.14, 28287.73, 38172.2, 35958.09, 44947.24], backgroundColor: COLORS.green, borderRadius:5 },
+      { label:'Saídas', data:[45166.84, 30429.35, 36110.53, 43032.6, 40906.94, 44923.21], backgroundColor: COLORS.red, borderRadius:5 },
+      { label:'Resultado do Mês', data:[-11252.67, 6561.79, -7822.8, -4860.4, -4948.85, 24.03], type:'line', borderColor: COLORS.amber, backgroundColor: COLORS.amber, tension:.3, yAxisID:'y' }
     ]
   },
   options: {
@@ -308,7 +374,7 @@ new Chart(document.getElementById('chartSaldo'), {
     labels: months,
     datasets: [{
       label:'Saldo Final do Mês',
-      data:[-7822.80,-12683.21,-17632.05,-17608.03],
+      data:[-11252.67, -4690.88, -12513.68, -17374.09, -22322.93, -22298.91],
       borderColor: COLORS.red, backgroundColor:'rgba(255,107,107,.15)',
       fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.red
     }]
@@ -320,12 +386,46 @@ new Chart(document.getElementById('chartSaldo'), {
   }
 });
 
+new Chart(document.getElementById('chartServicos'), {
+  type: 'doughnut',
+  data: {
+    labels:['Master Business - Mentoria', 'Consultoria Individual', 'Eventos', 'Processo de Coaching', 'RaioX Financeiro'],
+    datasets:[{
+      data:[124384.38, 67418.48, 16501.36, 8500.25, 297.01],
+      backgroundColor:['#4f8cff', '#33d19b', '#ffb648', '#a78bfa', '#ff6b6b'],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false, cutout:'62%',
+    plugins:{ legend:{display:false},
+      tooltip:{ callbacks:{ label:c=>c.label+': $ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})+' ('+(c.raw/217101.47999999998*100).toFixed(1)+'%)' } } }
+  }
+});
+
+new Chart(document.getElementById('chartDespesas'), {
+  type: 'doughnut',
+  data: {
+    labels:['Retirada de Sócios', 'Pagamento de Pessoal', 'Despesas de Marketing', 'Impostos', 'Serviços Prestados', 'Outras Despesas', 'Despesas Administrativas', 'Despesas Comerciais', 'Despesas Financeira'],
+    datasets:[{
+      data:[112781.27, 59037.02, 22314.61, 16534.55, 11817.79, 9002.25, 5668.21, 3241.92, 171.85],
+      backgroundColor:['#ffb648', '#4f8cff', '#a78bfa', '#f472b6', '#33d19b', '#ff6b6b', '#5eead4', '#94a3b8', '#64748b'],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false, cutout:'62%',
+    plugins:{ legend:{display:false},
+      tooltip:{ callbacks:{ label:c=>c.label+': $ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})+' ('+(c.raw/240569.47000000003*100).toFixed(1)+'%)' } } }
+  }
+});
+
 new Chart(document.getElementById('chartCascata'), {
   type: 'bar',
   data: {
     labels: ['Receita Líquida','Lucro Bruto','EBITDA','Lucro Líquido'],
     datasets: [{
-      data:[138422.33,112726.97,55130.66,55466.91],
+      data:[208947.89, 178723.53, 101153.51, 101860.36],
       backgroundColor:[COLORS.blue, COLORS.purple, COLORS.amber, COLORS.green],
       borderRadius:6
     }]
@@ -337,31 +437,14 @@ new Chart(document.getElementById('chartCascata'), {
   }
 });
 
-new Chart(document.getElementById('chartDespesas'), {
-  type: 'doughnut',
-  data: {
-    labels:['Retirada de Sócios', 'Pagamento de Pessoal', 'Despesas de Marketing', 'Serviços Prestados', 'Outras Despesas', 'Despesas Administrativas', 'Impostos', 'Despesas Comerciais', 'Despesas Financeira'],
-    datasets:[{
-      data:[76877.94, 45835.02, 20705.27, 8380.59, 7042.99, 3942.4, 1096.55, 929.82, 162.7],
-      backgroundColor:['#ffb648', '#4f8cff', '#a78bfa', '#33d19b', '#ff6b6b', '#5eead4', '#f472b6', '#94a3b8', '#64748b'],
-      borderColor:'#161d2e', borderWidth:2
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false, cutout:'62%',
-    plugins:{ legend:{display:false},
-      tooltip:{ callbacks:{ label:c=>c.label+': $ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})+' ('+(c.raw/164973.27999999997*100).toFixed(1)+'%)' } } }
-  }
-});
-
 new Chart(document.getElementById('chartLucroCaixa'), {
   type:'bar',
   data:{
     labels: months,
     datasets:[
-      { label:'Lucro Líquido (DRE)', data:[7950.55,16266.79,16633.78,14615.79], backgroundColor: COLORS.green, borderRadius:5 },
-      { label:'Fluxo de Caixa do Mês', data:[-7822.80,-4860.40,-4948.85,24.03], backgroundColor: COLORS.red, borderRadius:5 },
-      { label:'Retirada de Sócios', data:[-15773.36,-21127.20,-21582.63,-18394.76], backgroundColor: COLORS.amber, borderRadius:5 }
+      { label:'Lucro Líquido (DRE)', data:[22429.03, 23964.42, 7950.55, 16266.79, 16633.78, 14615.79], backgroundColor: COLORS.green, borderRadius:5 },
+      { label:'Fluxo de Caixa do Mês', data:[-11252.67, 6561.79, -7822.8, -4860.4, -4948.85, 24.03], backgroundColor: COLORS.red, borderRadius:5 },
+      { label:'Retirada de Sócios', data:[-18500.7, -17402.63, -15773.36, -21127.2, -21582.63, -18394.76], backgroundColor: COLORS.amber, borderRadius:5 }
     ]
   },
   options:{
