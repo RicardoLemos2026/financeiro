@@ -42,7 +42,7 @@
   .story p{margin:0; color:#d3d9e6; font-size:13.5px; line-height:1.6;}
   .story p+p{margin-top:8px;}
 
-  .ccards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:18px;}
+  .ccards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:18px;}
   .ccard{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
   .ccard-name{font-weight:700; font-size:14px; margin-bottom:10px;}
   .ccard-row{display:flex; justify-content:space-between; font-size:12.5px; color:var(--muted); padding:4px 0; border-bottom:1px dashed rgba(255,255,255,.06);}
@@ -61,41 +61,41 @@
 <body>
 
 <h1>Holding — Panorama Executivo 2026</h1>
-<div class="sub">Visão consolidada de Business Connection, TS, Gapper e IA for Business · Janeiro a Junho · Valores em $</div>
+<div class="sub">Visão consolidada de Business Connection, TS e Gapper · Janeiro a Julho · Valores em $</div>
 
 <div class="kpis">
   <div class="kpi">
     <div class="label">Receita Líquida Anual</div>
-    <div class="value">$ 313.351,53</div>
-    <div class="note">Soma das 4 empresas</div>
+    <div class="value">$ 470.314,15</div>
+    <div class="note">Soma das 3 empresas</div>
   </div>
   <div class="kpi">
     <div class="label">EBITDA Anual</div>
-    <div class="value pos">$ 136.042,64</div>
-    <div class="note">Margem EBITDA 43,4%</div>
+    <div class="value pos">$ 235.881,02</div>
+    <div class="note">Margem EBITDA 50,2%</div>
   </div>
   <div class="kpi">
     <div class="label">Lucro Líquido Anual</div>
-    <div class="value pos">$ 136.749,49</div>
-    <div class="note">Margem líquida 43,6%</div>
+    <div class="value pos">$ 214.735,40</div>
+    <div class="note">Margem líquida 45,7%</div>
   </div>
   <div class="kpi">
     <div class="label">Caixa Acumulado</div>
-    <div class="value pos">$ 116.766,74</div>
-    <div class="note">Partiu de $ 14.357,92 em Jan</div>
+    <div class="value pos">$ 176.558,78</div>
+    <div class="note">Partiu de $ 0 em Jan</div>
   </div>
   <div class="kpi">
     <div class="label">Empresas Lucrativas</div>
-    <div class="value">3 <span style="font-size:14px;color:var(--muted)">de 4</span></div>
-    <div class="note">TS é a única no vermelho</div>
+    <div class="value">3 <span style="font-size:14px;color:var(--muted)">de 3</span></div>
+    <div class="note">Todas positivas no período</div>
   </div>
 </div>
 
 <div class="story">
   <div class="icon">📈</div>
   <div>
-    <h3 class="green">A holding acelerou — e ficou ainda mais dependente de um único motor</h3>
-    <p>No primeiro semestre, o grupo faturou $ 313.351,53 e converteu 43,6% disso em lucro — números melhores do que os do relatório anterior. O caixa consolidado saiu de $ 14.357,92 em janeiro e fechou junho em $ 116.766,74, mais de 8 vezes maior. Mas a concentração de resultado aumentou: com receitas de janeiro e fevereiro agora contabilizadas, a <strong>Business Connection passou a responder por 67% da receita e 74% do EBITDA</strong> da holding — era 57% e 61% na leitura anterior. O grupo está mais forte, mas também mais dependente de uma única empresa.</p>
+    <h3 class="green">A holding está saudável — e a Business Connection é o motor</h3>
+    <p>Em sete meses, o grupo faturou $ 470.314,15 e converteu 45,7% disso em lucro líquido ($ 214.735,40) — um resultado sólido. O caixa consolidado partiu de $ 0 em janeiro e fechou julho em $ 176.558,78. As três empresas do grupo terminaram o período no positivo, mas a distribuição de peso é bem desigual: a <strong>Business Connection responde por 54,6% da receita e 50,7% do EBITDA</strong> da holding — é ela quem sustenta o grupo.</p>
   </div>
 </div>
 
@@ -113,41 +113,33 @@
 </div>
 
 <div class="ccards">
-  
-      <div class="ccard" style="border-top:3px solid #4f8cff">
-        <div class="ccard-name">Business Connection</div>
-        <div class="ccard-row"><span>Receita Líquida</span><b>$ 208.889,33</b></div>
-        <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 101.094,97</b></div>
-        <div class="ccard-row"><span>Margem Líquida</span><b class="pos">48.7%</b></div>
-        <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 93.609,11</b></div>
-      </div>
-      <div class="ccard" style="border-top:3px solid #ff6b6b">
-        <div class="ccard-name">TS</div>
-        <div class="ccard-row"><span>Receita Líquida</span><b>$ 41.803,47</b></div>
-        <div class="ccard-row"><span>EBITDA</span><b class="neg">$ -11.228,26</b></div>
-        <div class="ccard-row"><span>Margem Líquida</span><b class="neg">-26.9%</b></div>
-        <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 3.129,66</b></div>
-      </div>
-      <div class="ccard" style="border-top:3px solid #33d19b">
-        <div class="ccard-name">Gapper</div>
-        <div class="ccard-row"><span>Receita Líquida</span><b>$ 44.968,88</b></div>
-        <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 28.486,08</b></div>
-        <div class="ccard-row"><span>Margem Líquida</span><b class="pos">63.3%</b></div>
-        <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 2.338,12</b></div>
-      </div>
-      <div class="ccard" style="border-top:3px solid #a78bfa">
-        <div class="ccard-name">IA for Business</div>
-        <div class="ccard-row"><span>Receita Líquida</span><b>$ 17.689,85</b></div>
-        <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 17.689,85</b></div>
-        <div class="ccard-row"><span>Margem Líquida</span><b class="pos">100.0%</b></div>
-        <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 17.689,85</b></div>
-      </div>
+  <div class="ccard" style="border-top:3px solid #4f8cff">
+    <div class="ccard-name">Business Connection</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 256.627,72</b></div>
+    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 119.620,64</b></div>
+    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">46,8%</b></div>
+    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 110.805,34</b></div>
+  </div>
+  <div class="ccard" style="border-top:3px solid #ff6b6b">
+    <div class="ccard-name">TS</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 162.859,97</b></div>
+    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 84.740,68</b></div>
+    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">38,8%</b></div>
+    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 63.111,96</b></div>
+  </div>
+  <div class="ccard" style="border-top:3px solid #33d19b">
+    <div class="ccard-name">Gapper</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 50.826,46</b></div>
+    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 31.519,70</b></div>
+    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">62,0%</b></div>
+    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 2.641,48</b></div>
+  </div>
 </div>
 
 <div class="grid">
   <div class="card">
     <h3>EBITDA Mensal por Empresa</h3>
-    <div class="desc">Onde o resultado é construído — e onde ele é corroído, mês a mês</div>
+    <div class="desc">Onde o resultado é construído, mês a mês</div>
     <div class="chart-wrap"><canvas id="chartEbitdaMensal"></canvas></div>
   </div>
   <div class="card">
@@ -158,26 +150,18 @@
 </div>
 
 <div class="story">
-  <div class="icon">🔵</div>
-  <div>
-    <h3 class="amber">Business Connection: motor ainda mais forte, e ainda mais indispensável</h3>
-    <p>A Business Connection fechou o semestre com $ 208.889,33 de receita líquida e $ 101.094,97 de EBITDA — praticamente dobrou de tamanho em relação ao corte de dados anterior, puxado sobretudo por janeiro ($ 33.704,78) e fevereiro ($ 36.820,78), meses que antes apareciam zerados. A margem líquida também melhorou, de 40% para 48,7%. É a empresa mais rentável em valor absoluto do grupo, e sozinha já responde por três quartos do EBITDA da holding — o que reforça o ponto de atenção: qualquer instabilidade nessa operação afeta desproporcionalmente o resultado do grupo todo.</p>
-  </div>
-</div>
-
-<div class="story">
   <div class="icon">🟢</div>
   <div>
-    <h3 class="green">Gapper: a operação mais eficiente do grupo — mas que quase não guarda dinheiro</h3>
-    <p>A Gapper converte 63% de tudo que fatura em lucro, a melhor margem entre as operacionais recorrentes (a IA for Business tem 100%, mas ainda é um piloto de dois meses). O problema não é gerar resultado — é o que se faz com ele: dos $ 28.486,08 de EBITDA gerado no semestre, <strong>$ 25.228,67 (89%) já saíram como distribuição para sócios e gestor</strong>. O caixa da empresa mal chegou a $ 2.338,12 no fim de junho. Vale decidir, como diretoria, se esse ritmo de distribuição é sustentável ou se a Gapper precisa reter mais caixa para crescer.</p>
+    <h3 class="green">Gapper: a operação mais rentável do grupo — mas que quase não guarda dinheiro</h3>
+    <p>A Gapper converte 62% de tudo que fatura em lucro, a melhor margem do grupo. O problema não é gerar resultado — é o que se faz com ele: dos $ 31.519,70 de EBITDA gerado no período, <strong>$ 28.878,22 (91,6%) já saíram como distribuição para sócios e gestor</strong>. O caixa da empresa terminou julho em apenas $ 2.641,48. Vale decidir, como diretoria, se esse ritmo de distribuição é sustentável ou se a Gapper precisa reter mais caixa para crescer.</p>
   </div>
 </div>
 
 <div class="story">
-  <div class="icon">🔴</div>
+  <div class="icon">🟠</div>
   <div>
-    <h3 class="red">TS é o ponto de atenção da holding</h3>
-    <p>A TS é a única empresa do grupo com resultado negativo no semestre: receita de $ 41.803,47 gerou um EBITDA de <strong>-$ 11.228,26</strong> (margem de -26,9%). Em 4 dos 6 meses analisados, a empresa fechou no vermelho — fevereiro foi o pior mês, com EBITDA de -$ 5.799,10. Na leitura anterior isso chegava a puxar o resultado consolidado da holding para negativo em fevereiro; agora, com a força de janeiro e fevereiro da Business Connection, esse efeito fica mascarado no total do grupo — mas o problema na TS continua o mesmo. O caixa da empresa encolheu 78% no período (de $ 14.357,92 para $ 3.129,66), o maior consumidor de caixa entre as quatro empresas. As Despesas Administrativas ($ 29.589,19 no semestre) seguem como o principal ponto a investigar.</p>
+    <h3 class="amber">TS: resultado operacional sólido, mas um imposto pesado em abril mascarou o mês</h3>
+    <p>A TS fechou o período no azul ($ 63.111,96 de lucro líquido, margem de 38,8% — a mais baixa das três empresas, mas ainda positiva). Vale um destaque: em abril, a TS teve EBITDA operacional positivo de $ 12.665,89, mas um lançamento de IR/CSLL de $ 20.796 no mesmo mês levou o lucro líquido para <strong>-$ 8.201,17</strong> — o único mês negativo de qualquer empresa do grupo no período. Não é um problema operacional recorrente, mas vale confirmar se esse imposto foi um evento pontual ou se deve se repetir.</p>
   </div>
 </div>
 
@@ -185,10 +169,10 @@
   <div class="icon">💡</div>
   <div>
     <h3 class="amber">Leitura para a diretoria</h3>
-    <p><strong>1. Reduzir a concentração de risco:</strong> a dependência da Business Connection subiu de 61% para 74% do EBITDA da holding — vale discutir diversificação ou plano de contingência caso essa operação desacelere.</p>
+    <p><strong>1. Proteger o motor:</strong> a Business Connection sustenta o grupo — qualquer decisão que afete sua operação tem efeito direto na saúde financeira da holding.</p>
     <p><strong>2. Rever a política de distribuição da Gapper:</strong> alta rentabilidade sendo drenada quase por completo antes de formar caixa próprio.</p>
-    <p><strong>3. Diagnosticar a TS com prioridade:</strong> segue sendo a única unidade destruindo valor e consumindo caixa — o problema não sumiu, só ficou menos visível no total do grupo.</p>
-    <p><strong>4. Acompanhar a IA for Business:</strong> ainda são só dois meses de operação; resultado de 100% de margem é promissor mas precisa de mais histórico antes de qualquer conclusão.</p>
+    <p><strong>3. Confirmar a natureza do imposto de abril na TS:</strong> se for recorrente, a margem líquida real da empresa é mais baixa do que aparenta nos outros meses.</p>
+    <p><strong>4. Todas as três empresas fecharam o período no positivo</strong> — um sinal saudável de que o crescimento do grupo não depende de uma única aposta.</p>
   </div>
 </div>
 
@@ -197,20 +181,20 @@
   <div class="desc">DRE e Fluxo de Caixa da Holding, mês a mês</div>
   <table>
     <thead>
-      <tr><th>Métrica</th><th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Total</th></tr>
+      <tr><th>Métrica</th><th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Jul</th><th>Total</th></tr>
     </thead>
     <tbody>
-      <tr><td>Receita Líquida</td><td>47.700,80</td><td>51.835,42</td><td>43.934,46</td><td>50.127,49</td><td>63.869,81</td><td>55.883,55</td><td>313.351,53</td></tr>
-      <tr><td>EBITDA</td><td>25.500,19</td><td>22.288,91</td><td>14.337,38</td><td>16.900,35</td><td>36.010,39</td><td>21.005,40</td><td>136.042,64</td></tr>
-      <tr><td>Lucro Líquido</td><td>25.709,58</td><td>22.450,12</td><td>14.270,34</td><td>17.070,49</td><td>36.064,85</td><td>21.184,09</td><td>136.749,49</td></tr>
-      <tr><td>Margem Líquida</td><td>53,9%</td><td>43,3%</td><td>32,5%</td><td>34,1%</td><td>56,5%</td><td>37,9%</td><td>43,6%</td></tr>
-      <tr><td>Fluxo de Caixa do Período</td><td>7.401,14</td><td>18.593,80</td><td>8.964,59</td><td>16.316,96</td><td>31.027,25</td><td>21.024,37</td><td>103.328,11</td></tr>
-      <tr class="total"><td>Saldo Final de Caixa</td><td>21.759,06</td><td>40.352,86</td><td>49.317,45</td><td>65.155,43</td><td>96.182,67</td><td>116.766,74</td><td>116.766,74</td></tr>
+      <tr><td>Receita Líquida</td><td>62.818,17</td><td>77.344,99</td><td>58.409,75</td><td>69.678,42</td><td>59.518,70</td><td>68.360,80</td><td>74.183,31</td><td>470.314,15</td></tr>
+      <tr><td>EBITDA</td><td>42.532,96</td><td>50.605,86</td><td>25.271,51</td><td>33.236,66</td><td>25.251,78</td><td>28.302,80</td><td>30.679,43</td><td>235.881,02</td></tr>
+      <tr><td>Lucro Líquido</td><td>42.765,50</td><td>50.695,26</td><td>25.138,00</td><td class="neg">12.539,74</td><td>25.228,59</td><td>27.969,05</td><td>30.399,24</td><td>214.735,40</td></tr>
+      <tr><td>Margem Líquida</td><td>68,1%</td><td>65,5%</td><td>43,0%</td><td>18,0%</td><td>42,4%</td><td>40,9%</td><td>41,0%</td><td>45,7%</td></tr>
+      <tr><td>Fluxo de Caixa do Período</td><td>24.457,06</td><td>46.838,94</td><td>19.832,25</td><td>11.786,21</td><td>20.190,99</td><td>27.809,33</td><td>26.836,32</td><td>177.751,10</td></tr>
+      <tr class="total"><td>Saldo Final de Caixa</td><td>24.457,06</td><td>71.296,00</td><td>91.128,25</td><td>102.435,48</td><td>122.626,46</td><td>149.995,49</td><td>176.558,78</td><td>176.558,78</td></tr>
     </tbody>
   </table>
 </div>
 
-<div class="footer">Dashboard gerado a partir de "Holding_Acompanhamento_Financeiro_2026.xlsx" (atualizado) · abas Business Connection, TS, Gapper, IA for Business e Consolidado Holding · Jul–Dez ainda sem movimento registrado</div>
+<div class="footer">Dashboard gerado a partir de "Holding_Acompanhamento_Financeiro_2026.xlsx" · abas Business Connection, TS, Gapper e Consolidado Holding · Ago–Dez ainda sem movimento registrado · A empresa "IA for Business" não constava nesta planilha e foi removida desta versão do painel</div>
 
 <script>
 /*!
@@ -230,21 +214,21 @@
 
 </script>
 <script>
-const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul'];
 const COLORS = { green:'#33d19b', red:'#ff6b6b', blue:'#4f8cff', amber:'#ffb648', purple:'#a78bfa', muted:'#98a2b8' };
 Chart.defaults.color = '#c7cee0';
 Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
 Chart.defaults.font.family = "-apple-system,Segoe UI,Roboto,Arial,sans-serif";
 
+// Contribuição por empresa
 new Chart(document.getElementById('chartContribuicao'), {
   type: 'bar',
   data: {
     labels: ['Receita Líquida','EBITDA'],
     datasets: [
-      { label:'Business Connection', data:[208889.33, 101094.97], backgroundColor:'#4f8cff', borderRadius:4 },
-      { label:'TS', data:[41803.47, -11228.26], backgroundColor:'#ff6b6b', borderRadius:4 },
-      { label:'Gapper', data:[44968.88, 28486.08], backgroundColor:'#33d19b', borderRadius:4 },
-      { label:'IA for Business', data:[17689.85, 17689.85], backgroundColor:'#a78bfa', borderRadius:4 }
+      { label:'Business Connection', data:[256627.72, 119620.64], backgroundColor:'#4f8cff', borderRadius:4 },
+      { label:'TS', data:[162859.97, 84740.68], backgroundColor:'#ff6b6b', borderRadius:4 },
+      { label:'Gapper', data:[50826.46, 31519.70], backgroundColor:'#33d19b', borderRadius:4 }
     ]
   },
   options: {
@@ -254,13 +238,14 @@ new Chart(document.getElementById('chartContribuicao'), {
   }
 });
 
+// Margem líquida por empresa
 new Chart(document.getElementById('chartMargem'), {
   type: 'bar',
   data: {
-    labels: ['Business\nConnection','TS','Gapper','IA for\nBusiness'],
+    labels: ['Business\nConnection','TS','Gapper'],
     datasets: [{
-      data:[48.7, -26.9, 63.3, 100.0],
-      backgroundColor:['#4f8cff','#ff6b6b','#33d19b','#a78bfa'],
+      data:[46.8, 38.8, 62.0],
+      backgroundColor:['#4f8cff','#ff6b6b','#33d19b'],
       borderRadius:6
     }]
   },
@@ -271,15 +256,15 @@ new Chart(document.getElementById('chartMargem'), {
   }
 });
 
+// EBITDA mensal por empresa (stacked)
 new Chart(document.getElementById('chartEbitdaMensal'), {
   type:'bar',
   data:{
     labels: months,
     datasets:[
-      { label:'Business Connection', data:[22219.64, 23803.21, 6441.1, 15248.66, 15355.91, 18026.44], backgroundColor:'#4f8cff', borderRadius:3 },
-      { label:'TS', data:[-194.38, -5799.1, 2791.41, -3670.42, 2143.79, -6499.56], backgroundColor:'#ff6b6b', borderRadius:3 },
-      { label:'Gapper', data:[3474.93, 4284.8, 5104.87, 5322.12, 5407.1, 4892.26], backgroundColor:'#33d19b', borderRadius:3 },
-      { label:'IA for Business', data:[0, 0, 0, 0, 13103.59, 4586.26], backgroundColor:'#a78bfa', borderRadius:3 }
+      { label:'Business Connection', data:[22219.64, 23803.21, 6441.10, 15248.66, 15355.91, 18026.44, 18525.67], backgroundColor:'#4f8cff', borderRadius:3 },
+      { label:'TS', data:[16838.39, 22517.85, 13725.54, 12665.89, 4488.77, 5384.10, 9120.14], backgroundColor:'#ff6b6b', borderRadius:3 },
+      { label:'Gapper', data:[3474.93, 4284.80, 5104.87, 5322.12, 5407.10, 4892.26, 3033.62], backgroundColor:'#33d19b', borderRadius:3 }
     ]
   },
   options:{
@@ -289,13 +274,14 @@ new Chart(document.getElementById('chartEbitdaMensal'), {
   }
 });
 
+// Caixa consolidado
 new Chart(document.getElementById('chartCaixa'), {
   type:'line',
   data:{
     labels: months,
     datasets:[
-      { label:'Saldo Final de Caixa', data:[21759.06, 40352.86, 49317.45, 65155.43, 96182.67, 116766.74], borderColor: COLORS.green, backgroundColor:'rgba(51,209,155,.15)', fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.green },
-      { label:'Receita Líquida do Mês', data:[47700.8, 51835.42, 43934.46, 50127.49, 63869.81, 55883.55], type:'bar', backgroundColor:'rgba(79,140,255,.35)', borderRadius:4, yAxisID:'y' }
+      { label:'Saldo Final de Caixa', data:[24457.06, 71296.00, 91128.25, 102435.48, 122626.46, 149995.49, 176558.78], borderColor: COLORS.green, backgroundColor:'rgba(51,209,155,.15)', fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.green },
+      { label:'Receita Líquida do Mês', data:[62818.17, 77344.99, 58409.75, 69678.42, 59518.70, 68360.80, 74183.31], type:'bar', backgroundColor:'rgba(79,140,255,.35)', borderRadius:4, yAxisID:'y' }
     ]
   },
   options:{
