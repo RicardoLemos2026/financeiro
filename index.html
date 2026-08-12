@@ -2,330 +2,208 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard Financeiro — Business Connection</title>
+<title>Business Connection — Painel Financeiro</title>
 <style>
-  :root{
-    --bg:#0f1420; --panel:#161d2e; --panel2:#1c2438; --border:#2a334a;
-    --text:#eef1f7; --muted:#98a2b8;
-    --green:#33d19b; --red:#ff6b6b; --blue:#4f8cff; --amber:#ffb648; --purple:#a78bfa;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; background:linear-gradient(180deg,#0b0f18,#0f1420 300px); color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    padding:32px 40px 60px;
-  }
-  h1{font-size:24px; margin:0 0 4px;}
-  .sub{color:var(--muted); font-size:14px; margin-bottom:28px;}
-  .kpis{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:26px;}
-  .kpi{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
-  .kpi .label{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
-  .kpi .value{font-size:22px; font-weight:700; margin-top:6px;}
-  .kpi .note{font-size:12px; margin-top:4px; color:var(--muted);}
-  .pos{color:var(--green);} .neg{color:var(--red);}
-  .grid{display:grid; grid-template-columns:2fr 1fr; gap:16px; margin-bottom:16px;}
-  .grid3{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-  .card{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px;}
-  .card h3{margin:0 0 2px; font-size:15px;}
-  .card .desc{color:var(--muted); font-size:12.5px; margin-bottom:12px;}
-  .chart-wrap{position:relative; height:280px; width:100%;}
-  .chart-wrap.tall{height:260px;}
-  .insight{
-    background:linear-gradient(135deg,#1c2438,#20263a); border:1px solid #3a4566; border-radius:12px;
-    padding:20px 22px; margin-bottom:22px; display:flex; gap:16px; align-items:flex-start;
-  }
-  .insight .icon{font-size:26px;}
-  .insight h3{margin:0 0 6px; font-size:16px; color:var(--amber);}
-  .insight p{margin:0; color:#d3d9e6; font-size:13.5px; line-height:1.55;}
+:root{
+  --bg:#0f1420; --panel:#161d2e; --panel2:#1c2438; --border:#2a334a;
+  --text:#eef1f7; --muted:#98a2b8;
+  --green:#33d19b; --red:#ff6b6b; --blue:#4f8cff; --amber:#ffb648; --purple:#a78bfa;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:linear-gradient(180deg,#0b0f18,#0f1420 300px); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  padding:32px 40px 60px;
+}
+h1{font-size:24px; margin:0 0 4px;}
+.subtitle{color:var(--muted); font-size:14px; margin-bottom:26px;}
 
-  .featured{
-    background:linear-gradient(160deg,#1c2438,#171f30);
-    border:1px solid #3a4566; border-radius:16px; padding:26px 28px; margin-bottom:20px;
-    box-shadow:0 0 0 1px rgba(255,182,72,.08), 0 12px 32px rgba(0,0,0,.35);
-  }
-  .featured-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; flex-wrap:wrap;}
-  .featured-head h2{margin:0; font-size:20px;}
-  .featured-head .badge{background:rgba(255,182,72,.15); color:var(--amber); font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;}
-  .featured-head .badge.blue{background:rgba(79,140,255,.15); color:var(--blue);}
-  .featured .desc{color:var(--muted); font-size:13px; margin-bottom:18px;}
-  .featured-body{display:grid; grid-template-columns:1.1fr 1.4fr; gap:28px; align-items:center;}
-  .dexp-total{text-align:center; margin-top:10px;}
-  .dexp-total .n{font-size:26px; font-weight:800;}
-  .dexp-total .l{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
-  .dexp-list{display:flex; flex-direction:column; gap:12px;}
-  .dexp-row{padding:2px 0;}
-  .dexp-row.hl .dexp-label, .dexp-row.hl .dexp-val{color:var(--amber); font-weight:700;}
-  .dexp-top{display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:5px;}
-  .dexp-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
-  .dexp-label{flex:1; color:#dfe4ee;}
-  .dexp-val{color:#c7cee0; font-variant-numeric:tabular-nums;}
-  .dexp-pct{width:44px; text-align:right; color:var(--muted); font-variant-numeric:tabular-nums;}
-  .dexp-bar-bg{height:7px; background:rgba(255,255,255,.06); border-radius:6px; overflow:hidden;}
-  .dexp-bar{height:100%; border-radius:6px;}
+.kpis{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:22px;}
+.kpi{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+.kpi .label{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
+.kpi .value{font-size:21px; font-weight:700; margin-top:6px;}
+.kpi .note{font-size:12px; margin-top:4px; color:var(--muted);}
+.pos{color:var(--green);} .neg{color:var(--red);}
 
-  table{width:100%; border-collapse:collapse; font-size:13px;}
-  th,td{padding:8px 10px; text-align:right; border-bottom:1px solid var(--border);}
-  th:first-child, td:first-child{text-align:left; color:var(--muted);}
-  th{color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase;}
-  tr:last-child td{border-bottom:none; font-weight:700;}
-  .footer{color:var(--muted); font-size:11.5px; margin-top:24px; text-align:center;}
-  @media (max-width:1100px){ .kpis{grid-template-columns:repeat(2,1fr);} .grid,.grid3{grid-template-columns:1fr;} .featured-body{grid-template-columns:1fr;} }
+.story{
+  background:linear-gradient(135deg,#1c2438,#20263a); border:1px solid #3a4566; border-radius:12px;
+  padding:20px 22px; margin-bottom:18px; display:flex; gap:16px; align-items:flex-start;
+}
+.story .icon{font-size:26px;}
+.story h3{margin:0 0 6px; font-size:16px;}
+.story h3.amber{color:var(--amber);} .story h3.red{color:var(--red);} .story h3.green{color:var(--green);}
+.story p{margin:0; color:#d3d9e6; font-size:13.5px; line-height:1.6;}
+.story p+p{margin-top:8px;}
+
+.featured{
+  background:linear-gradient(160deg,#1c2438,#171f30);
+  border:1px solid #3a4566; border-radius:16px; padding:26px 28px; margin-bottom:20px;
+  box-shadow:0 0 0 1px rgba(255,182,72,.08), 0 12px 32px rgba(0,0,0,.35);
+}
+.featured-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:16px;}
+.featured-head h2{font-size:17px; margin:0;}
+.featured-head .badge{background:rgba(255,182,72,.15); color:var(--amber); font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px;}
+.featured-body{display:grid; grid-template-columns:1.1fr 1.4fr; gap:28px; align-items:center;}
+
+.dexp-list{display:flex; flex-direction:column; gap:12px;}
+.dexp-row.hl .dexp-label, .dexp-row.hl .dexp-val{color:var(--amber); font-weight:700;}
+.dexp-top{display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:5px;}
+.dexp-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
+.dexp-label{flex:1; color:#dfe4ee;}
+.dexp-val{color:#c7cee0; font-variant-numeric:tabular-nums;}
+.dexp-pct{width:44px; text-align:right; color:var(--muted); font-variant-numeric:tabular-nums;}
+.dexp-bar-bg{height:7px; background:rgba(255,255,255,.06); border-radius:6px; overflow:hidden;}
+.dexp-bar{height:100%; border-radius:6px;}
+
+.chart-wrap{position:relative; height:280px; width:100%;}
+.chart-wrap.sm{height:230px;}
+
+.card{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px;}
+.card h3{margin:0 0 2px; font-size:15px;}
+.card .desc{color:var(--muted); font-size:12.5px; margin-bottom:12px;}
+
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+.grid-32{display:grid; grid-template-columns:1.6fr 1fr; gap:16px; margin-bottom:16px;}
+@media (max-width:1100px){ .kpis{grid-template-columns:repeat(2,1fr);} .grid,.grid-32,.featured-body{grid-template-columns:1fr;} }
+
+table{width:100%; border-collapse:collapse; font-size:12.5px;}
+th,td{padding:7px 9px; text-align:right; border-bottom:1px solid var(--border);}
+th:first-child, td:first-child{text-align:left; color:var(--muted);}
+tr.total td{font-weight:700; border-top:1px solid #3a4566;}
+
+.section-title{font-size:15px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin:30px 0 12px;}
+footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 </style>
 </head>
 <body>
 
-<h1>Dashboard Financeiro — Business Connection</h1>
-<div class="sub">Fluxo de Caixa &amp; DRE · Período com movimento: Janeiro a Junho · Valores em $</div>
+<h1>Business Connection — Painel Financeiro</h1>
+<div class="subtitle">Janeiro a Julho de 2026 · Valores em US$ · Fluxo de Caixa &amp; DRE</div>
 
 <div class="kpis">
   <div class="kpi">
-    <div class="label">Receita Bruta (DRE)</div>
-    <div class="value">$ 213.292,48</div>
-    <div class="note">Acumulado no período</div>
+    <div class="label">Receita Líquida</div>
+    <div class="value">$257.551</div>
+    <div class="note">acumulado no período</div>
   </div>
   <div class="kpi">
-    <div class="label">Entradas de Caixa</div>
-    <div class="value">$ 218.270,57</div>
-    <div class="note">Recebido de fato</div>
+    <div class="label">Lucro Líquido</div>
+    <div class="value pos">$132.802</div>
+    <div class="note">margem líquida de 51,6%</div>
   </div>
   <div class="kpi">
-    <div class="label">Lucro Líquido (DRE)</div>
-    <div class="value pos">$ 101.860,36</div>
-    <div class="note">Margem líquida média 48,7%</div>
+    <div class="label">EBITDA</div>
+    <div class="value pos">$129.527</div>
+    <div class="note">margem EBITDA de 50,3%</div>
   </div>
   <div class="kpi">
-    <div class="label">Saldo de Caixa Final</div>
-    <div class="value neg">-$ 22.298,91</div>
-    <div class="note">Caixa acumulado no período</div>
+    <div class="label">Saldo de Caixa (Jul)</div>
+    <div class="value neg">-$2.773</div>
+    <div class="note">caixa acumulado no período</div>
   </div>
   <div class="kpi">
-    <div class="label">Retiradas de Sócios</div>
-    <div class="value" style="color:var(--amber)">$ 112.781,27</div>
-    <div class="note">46,9% do total de saídas</div>
+    <div class="label">Retirada de Sócios</div>
+    <div class="value neg">$132.812</div>
+    <div class="note">49% de todas as saídas</div>
   </div>
 </div>
 
-<div class="insight">
-  <div class="icon">⚠️</div>
+<div class="story">
+  <div class="icon">🔴</div>
   <div>
-    <h3>O lucro no papel não é o dinheiro no caixa</h3>
-    <p>Com janeiro e fevereiro agora completos, a empresa segue <strong>lucrativa na operação</strong> — a DRE mostra $ 101.860,36 de lucro líquido acumulado (margem de 48,7%) no semestre. Mas o caixa fechou o período <strong>negativo em $ 22.298,91</strong>. A diferença não vem de despesa operacional: as <strong>Retiradas dos sócios somaram $ 112.781,27</strong> — 46,9% de tudo que saiu do caixa, e um valor que já supera o próprio lucro líquido gerado no período em $ 10.920,91. Ou seja, no acumulado do semestre já saiu mais dinheiro do caixa via retirada do que a operação conseguiu gerar de resultado.</p>
+    <h3 class="red">O lucro virou retirada, não virou caixa</h3>
+    <p>Nos sete meses do ano, a Business Connection lucrou <strong>$132.802</strong> — uma margem líquida saudável de 51,6%. Mas os sócios retiraram <strong>$132.812</strong> no mesmo período, praticamente <strong>100% do lucro gerado</strong>. É por isso que, apesar do resultado contábil forte, o saldo de caixa termina julho em <strong>-$2.773</strong>: o negócio está distribuindo o lucro tão rápido quanto o gera, sem construir nenhuma reserva.</p>
+    <p>Vale registrar: a planilha original apresentava um saldo final de <strong>-$16.920</strong> — encontramos uma inconsistência na fórmula de soma de janeiro e fevereiro (linhas de subcategoria sendo contadas em duplicidade no total de saídas desses dois meses), que inflava as saídas em $14.147. O valor corrigido e reconciliado com a aba analítica é o -$2.773 mostrado aqui.</p>
   </div>
 </div>
 
+<div class="section-title">Fluxo de Caixa Mensal</div>
 <div class="grid">
   <div class="card">
-    <h3>Fluxo de Caixa Mensal</h3>
-    <div class="desc">Entradas vs. Saídas vs. Resultado do mês — Fluxo de Caixa</div>
-    <div class="chart-wrap"><canvas id="chartFluxo"></canvas></div>
+    <h3>Entradas vs. Saídas por mês</h3>
+    <div class="desc">Onde o caixa entrou e saiu, mês a mês</div>
+    <div class="chart-wrap"><canvas id="chartFlow"></canvas></div>
   </div>
   <div class="card">
-    <h3>Saldo de Caixa Acumulado</h3>
-    <div class="desc">Trajetória do saldo final de cada mês</div>
-    <div class="chart-wrap"><canvas id="chartSaldo"></canvas></div>
+    <h3>Trajetória do saldo de caixa</h3>
+    <div class="desc">Saldo acumulado — mostra os meses críticos que o total anual esconde</div>
+    <div class="chart-wrap"><canvas id="chartBalance"></canvas></div>
+  </div>
+</div>
+
+<div class="story">
+  <div class="icon">🟠</div>
+  <div>
+    <h3 class="amber">Receita concentrada em duas frentes</h3>
+    <p>Master Business (mentoria) e Consultoria Individual juntas respondem por <strong>89% da receita</strong> ($235.271 de $263.298 no total do produto). Mentoria isolada já é <strong>57%</strong> do faturamento. Isso significa que a saúde financeira do negócio está fortemente atrelada à performance dessas duas ofertas — uma queda em qualquer uma delas afeta a maior parte da receita.</p>
   </div>
 </div>
 
 <div class="featured">
   <div class="featured-head">
-    <h2>Faturamento por Serviço</h2>
-    <span class="badge blue">$ 217.101,48 em receita de serviços · Jan–Jun</span>
+    <h2>Composição das Saídas de Caixa</h2>
+    <div class="badge">quase metade é retirada</div>
   </div>
-  <div class="desc">De onde vem o dinheiro: apenas dois produtos — Master Business (Mentoria) e Consultoria Individual — respondem por quase 9 em cada 10 dólares faturados.</div>
   <div class="featured-body">
-    <div>
-      <div class="chart-wrap" style="height:320px;"><canvas id="chartServicos"></canvas></div>
-      <div class="dexp-total">
-        <div class="n">$ 217.101,48</div>
-        <div class="l">Total de Receita de Serviços</div>
-      </div>
-    </div>
-    <div class="dexp-list">
-      
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#4f8cff"></span>
-          <span class="dexp-label">Master Business - Mentoria</span>
-          <span class="dexp-val">$ 124.384,38</span>
-          <span class="dexp-pct">57.3%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:57.29%; background:#4f8cff"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#33d19b"></span>
-          <span class="dexp-label">Consultoria Individual</span>
-          <span class="dexp-val">$ 67.418,48</span>
-          <span class="dexp-pct">31.1%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:31.05%; background:#33d19b"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#ffb648"></span>
-          <span class="dexp-label">Eventos</span>
-          <span class="dexp-val">$ 16.501,36</span>
-          <span class="dexp-pct">7.6%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:7.60%; background:#ffb648"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#a78bfa"></span>
-          <span class="dexp-label">Processo de Coaching</span>
-          <span class="dexp-val">$ 8.500,25</span>
-          <span class="dexp-pct">3.9%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:3.92%; background:#a78bfa"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#ff6b6b"></span>
-          <span class="dexp-label">RaioX Financeiro</span>
-          <span class="dexp-val">$ 297,01</span>
-          <span class="dexp-pct">0.1%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.14%; background:#ff6b6b"></div></div>
-      </div>
-    </div>
+    <div class="chart-wrap"><canvas id="chartExpenses"></canvas></div>
+    <div class="dexp-list" id="expenseList"></div>
   </div>
 </div>
 
-<div class="featured">
-  <div class="featured-head">
-    <h2>Para Onde Foi o Caixa</h2>
-    <span class="badge">$ 240.569,47 em saídas · Jan–Jun</span>
-  </div>
-  <div class="desc">Composição completa das saídas de caixa no período. A Retirada de Sócios sozinha é quase o dobro da segunda maior categoria (Pessoal) e responde por quase metade de tudo que saiu do caixa.</div>
-  <div class="featured-body">
-    <div>
-      <div class="chart-wrap" style="height:320px;"><canvas id="chartDespesas"></canvas></div>
-      <div class="dexp-total">
-        <div class="n">$ 240.569,47</div>
-        <div class="l">Total de Saídas de Caixa</div>
-      </div>
-    </div>
-    <div class="dexp-list">
-      
-      <div class="dexp-row class="hl"">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#ffb648"></span>
-          <span class="dexp-label">Retirada de Sócios</span>
-          <span class="dexp-val">$ 112.781,27</span>
-          <span class="dexp-pct">46.9%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:46.88%; background:#ffb648"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#4f8cff"></span>
-          <span class="dexp-label">Pagamento de Pessoal</span>
-          <span class="dexp-val">$ 59.037,02</span>
-          <span class="dexp-pct">24.5%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:24.54%; background:#4f8cff"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#a78bfa"></span>
-          <span class="dexp-label">Despesas de Marketing</span>
-          <span class="dexp-val">$ 22.314,61</span>
-          <span class="dexp-pct">9.3%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:9.28%; background:#a78bfa"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#f472b6"></span>
-          <span class="dexp-label">Impostos</span>
-          <span class="dexp-val">$ 16.534,55</span>
-          <span class="dexp-pct">6.9%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:6.87%; background:#f472b6"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#33d19b"></span>
-          <span class="dexp-label">Serviços Prestados</span>
-          <span class="dexp-val">$ 11.817,79</span>
-          <span class="dexp-pct">4.9%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:4.91%; background:#33d19b"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#ff6b6b"></span>
-          <span class="dexp-label">Outras Despesas</span>
-          <span class="dexp-val">$ 9.002,25</span>
-          <span class="dexp-pct">3.7%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:3.74%; background:#ff6b6b"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#5eead4"></span>
-          <span class="dexp-label">Despesas Administrativas</span>
-          <span class="dexp-val">$ 5.668,21</span>
-          <span class="dexp-pct">2.4%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:2.36%; background:#5eead4"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#94a3b8"></span>
-          <span class="dexp-label">Despesas Comerciais</span>
-          <span class="dexp-val">$ 3.241,92</span>
-          <span class="dexp-pct">1.3%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:1.35%; background:#94a3b8"></div></div>
-      </div>
-      <div class="dexp-row">
-        <div class="dexp-top">
-          <span class="dexp-dot" style="background:#64748b"></span>
-          <span class="dexp-label">Despesas Financeira</span>
-          <span class="dexp-val">$ 171,85</span>
-          <span class="dexp-pct">0.1%</span>
-        </div>
-        <div class="dexp-bar-bg"><div class="dexp-bar" style="width:0.07%; background:#64748b"></div></div>
-      </div>
-    </div>
+<div class="story">
+  <div class="icon">🔴</div>
+  <div>
+    <h3 class="red">Eventos dão receita, mas custam mais do que trazem</h3>
+    <p>Eventos geraram <strong>$18.431</strong> em receita no período — mas, ao descontar seus custos diretos, a margem de contribuição do produto foi <strong>negativa em -$5.004</strong>. Ou seja: cada evento realizado, em média, drena caixa em vez de gerar lucro. Vale revisar o modelo de precificação ou o custo operacional dessa linha antes de continuar investindo nela.</p>
   </div>
 </div>
 
-<div class="grid3">
+<div class="section-title">Receita por Produto</div>
+<div class="grid-32">
   <div class="card">
-    <h3>Da Receita ao Lucro (DRE)</h3>
-    <div class="desc">Cascata de margens acumuladas no período</div>
-    <div class="chart-wrap"><canvas id="chartCascata"></canvas></div>
+    <h3>Participação por produto (Total Ano)</h3>
+    <div class="desc">Concentração de receita — Mentoria e Consultoria dominam</div>
+    <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
   </div>
   <div class="card">
-    <h3>Lucro Contábil (DRE) vs. Caixa Gerado</h3>
-    <div class="desc">O ponto em que os dois números deveriam conversar, e onde eles se distanciam</div>
-    <div class="chart-wrap"><canvas id="chartLucroCaixa"></canvas></div>
+    <h3>Ranking</h3>
+    <div class="desc">% do total de receita de produtos</div>
+    <div class="dexp-list" id="revenueList"></div>
   </div>
 </div>
 
+<div class="section-title">Margem de Contribuição por Produto</div>
+<div class="grid">
+  <div class="card">
+    <h3>Mensal — Índice de Contribuição (%)</h3>
+    <div class="desc">Margem de contribuição como % da receita de cada produto, mês a mês</div>
+    <div class="chart-wrap"><canvas id="chartContributionMonthly"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Acumulado (Total Ano)</h3>
+    <div class="desc">Quanto cada produto sobra depois do custo direto — Eventos é o único no vermelho</div>
+    <div class="chart-wrap"><canvas id="chartContribution"></canvas></div>
+  </div>
+</div>
+
+<div class="section-title">Apêndice — Comparativo Mensal</div>
 <div class="card">
-  <h3>Resumo Comparativo Mensal</h3>
-  <div class="desc">Fluxo de Caixa x DRE lado a lado</div>
-  <table>
+  <table id="appendixTable">
     <thead>
-      <tr><th>Métrica</th><th>Janeiro</th><th>Fevereiro</th><th>Março</th><th>Abril</th><th>Maio</th><th>Junho</th><th>Total</th></tr>
+      <tr>
+        <th>Mês</th><th>Entradas</th><th>Saídas</th><th>Fluxo do Mês</th><th>Saldo Acum.</th><th>Receita Líq. (DRE)</th><th>Lucro Líq. (DRE)</th>
+      </tr>
     </thead>
-    <tbody>
-      <tr><td>Entradas de Caixa</td><td>33.914,17</td><td>36.991,14</td><td>28.287,73</td><td>38.172,20</td><td>35.958,09</td><td>44.947,24</td><td>218.270,57</td></tr>
-      <tr><td>Saídas de Caixa</td><td>45.166,84</td><td>30.429,35</td><td>36.110,53</td><td>43.032,60</td><td>40.906,94</td><td>44.923,21</td><td>240.569,47</td></tr>
-      <tr><td>Fluxo de Caixa do Mês</td><td class="neg">-11.252,67</td><td class="pos">6.561,79</td><td class="neg">-7.822,80</td><td class="neg">-4.860,40</td><td class="neg">-4.948,85</td><td class="pos">24,03</td><td class="neg">-22.298,90</td></tr>
-      <tr><td>Receita Líquida (DRE)</td><td>33.704,78</td><td>36.820,78</td><td>27.180,10</td><td>36.889,39</td><td>34.803,99</td><td>39.548,85</td><td>208.947,89</td></tr>
-      <tr><td>EBITDA (DRE)</td><td>22.219,64</td><td>23.803,21</td><td>8.017,60</td><td>16.096,65</td><td>16.579,32</td><td>14.437,09</td><td>101.153,51</td></tr>
-      <tr><td>Lucro Líquido (DRE)</td><td class="pos">22.429,03</td><td class="pos">23.964,42</td><td class="pos">7.950,55</td><td class="pos">16.266,79</td><td class="pos">16.633,78</td><td class="pos">14.615,79</td><td class="pos">101.860,36</td></tr>
-      <tr><td>Retirada de Sócios</td><td>18.500,70</td><td>17.402,63</td><td>15.773,36</td><td>21.127,20</td><td>21.582,63</td><td>18.394,76</td><td>112.781,27</td></tr>
-      <tr><td>Gap Lucro − Retirada</td><td class="pos">3.928,33</td><td class="pos">6.561,79</td><td class="neg">-7.822,81</td><td class="neg">-4.860,41</td><td class="neg">-4.948,85</td><td class="neg">-3.778,97</td><td class="neg">-10.920,91</td></tr>
-    </tbody>
+    <tbody id="appendixBody"></tbody>
   </table>
 </div>
 
-<div class="footer">Dashboard gerado a partir de "Business Connection - Fluxo de caixa.xlsx" (atualizado) · abas Fluxo de Caixa Analítico e DRE · Jul-Dez sem movimento registrado no arquivo</div>
+<footer>
+  Painel gerado a partir de "Business_Connection_-_Fluxo_de_caixa.xlsx". Dados de Jan–Jul/2026 (Ago–Dez ainda sem lançamentos).
+  Saídas mensais e saldo de caixa foram recalculados a partir da aba "Fluxo de Caixa Analítico" após identificação de uma fórmula de soma inconsistente
+  nas colunas de Janeiro e Fevereiro da aba "Fluxo de Caixa" (contagem duplicada de subcategorias). Receita bruta de Jun/Jul no DRE foi ajustada para incluir
+  a receita de Eventos, que a fórmula original excluía nesses dois meses por referenciar a aba resumida em vez da analítica.
+</footer>
 
 <script>
 /*!
@@ -345,114 +223,262 @@
 
 </script>
 <script>
-const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
-const COLORS = { green:'#33d19b', red:'#ff6b6b', blue:'#4f8cff', amber:'#ffb648', purple:'#a78bfa', muted:'#98a2b8' };
-Chart.defaults.color = '#c7cee0';
-Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
-Chart.defaults.font.family = "-apple-system,Segoe UI,Roboto,Arial,sans-serif";
+const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"];
+const entradas = [33914.17, 36991.14, 28287.73, 38172.2, 35958.09, 44947.24, 49298.14];
+const saidas = [29085.84, 28837.35, 36110.53, 43032.6, 40906.94, 40236.06, 52132.6];
+const fluxo = [4828.33, 8153.79, -7822.8, -4860.4, -4948.85, 4711.18, -2834.46];
+const saldo = [4828.33, 12982.12, 5159.32, 298.92, -4649.93, 61.25, -2773.21];
+const receitaLiq = [33704.78, 36820.78, 27180.1, 36889.39, 34803.99, 43351.85, 44800.27];
+const lucroLiq = [23329.03, 25556.42, 7950.55, 16266.79, 16633.78, 23105.93, 19959.96];
+const ebitda = [23119.64, 25395.21, 8017.6, 16096.65, 16579.32, 22927.24, 17391.26];
 
-new Chart(document.getElementById('chartFluxo'), {
+const revenueBreakdown = [["Master Business - Mentoria", 150753.93, "var(--blue)"], ["Consultoria Individual", 84516.65, "var(--green)"], ["Eventos", 18430.91, "var(--amber)"], ["Processo de Coaching", 9300.0, "var(--purple)"], ["RaioX Financeiro", 297.0, "var(--muted)"]];
+const revenueTotal = 263298.49;
+const expenseBreakdown = [["Retirada (sócios)", 132811.95, "var(--red)"], ["Pagamento de Pessoal", 67006.02, "var(--blue)"], ["Marketing", 25713.67, "var(--amber)"], ["Serviços Prestados (terceiros)", 19860.73, "var(--purple)"], ["Outras Despesas", 10404.99, "var(--muted)"], ["Despesas Administrativas", 8273.93, "#5fa8e0"], ["Despesas Comerciais", 3258.77, "#7fd6b0"], ["Impostos", 2458.5, "#c9a4f5"], ["Despesas Financeiras", 553.36, "#8892a6"]];
+const expenseTotal = 270341.92;
+
+// Margem de Contribuição (aba "Margem de Contribuição", Total Ano por produto)
+const contributionLabels = ["Master Business - Mentoria", "Consultoria Individual", "Processo de Coaching", "RaioX Financeiro", "Eventos"];
+const contributionMargin = [94077.22, 41288.68, 2030.39, 218.49, -5004.50];
+const contributionIndex = [62.4, 48.8, 21.8, 73.6, -27.2]; // margem / receita do produto, em %
+
+// Margem de Contribuição mensal por produto (Jan-Jul, mesma aba)
+const contributionMonthly = {
+  "Master Business - Mentoria": [10134.14, 19627.89, 8578.99, 12449.51, 12694.46, 14001.42, 16590.81],
+  "Consultoria Individual": [7849.21, 3950.23, 2169.47, 6011.61, 5823.29, 11068.19, 4416.67],
+  "Processo de Coaching": [508.89, 278.58, 219.04, 482.43, 544.49, -39.50, 36.45],
+  "RaioX Financeiro": [0, 0, 0, 0, 218.49, 0, 0],
+  "Eventos": [2371.01, 0, -1380.08, -1424.82, -2371.04, -1266.60, -932.98]
+};
+const contributionColors = {
+  "Master Business - Mentoria": "#4f8cff",
+  "Consultoria Individual": "#33d19b",
+  "Processo de Coaching": "#a78bfa",
+  "RaioX Financeiro": "#98a2b8",
+  "Eventos": "#ff6b6b"
+};
+// Índice de Contribuição mensal por produto (%) = margem / receita do produto no mês
+// null = mês sem receita do produto (Fev e Jun/Jul de RaioX, Fev de Eventos) — índice indefinido, não é zero
+const contributionIndexMonthly = {
+  "Master Business - Mentoria": [67.8, 69.1, 49.3, 63.2, 56.5, 65.1, 62.9],
+  "Consultoria Individual": [64.4, 60.8, 30.2, 50.4, 54.5, 58.5, 25.8],
+  "Processo de Coaching": [39.2, 14.5, 11.4, 28.0, 48.4, -7.9, 4.6],
+  "RaioX Financeiro": [null, null, null, null, 73.6, null, null],
+  "Eventos": [44.9, null, -87.5, -30.9, -193.9, -33.3, -48.3]
+};
+
+function fmtUSD(n){
+  return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+}
+
+// --- Chart 1: Entradas vs Saidas ---
+new Chart(document.getElementById('chartFlow'), {
   type: 'bar',
   data: {
     labels: months,
     datasets: [
-      { label:'Entradas', data:[33914.17, 36991.14, 28287.73, 38172.2, 35958.09, 44947.24], backgroundColor: COLORS.green, borderRadius:5 },
-      { label:'Saídas', data:[45166.84, 30429.35, 36110.53, 43032.6, 40906.94, 44923.21], backgroundColor: COLORS.red, borderRadius:5 },
-      { label:'Resultado do Mês', data:[-11252.67, 6561.79, -7822.8, -4860.4, -4948.85, 24.03], type:'line', borderColor: COLORS.amber, backgroundColor: COLORS.amber, tension:.3, yAxisID:'y' }
+      { label: 'Entradas', data: entradas, backgroundColor: '#33d19b' },
+      { label: 'Saídas', data: saidas, backgroundColor: '#ff6b6b' }
     ]
   },
   options: {
-    responsive:true, maintainAspectRatio:false,
-    plugins:{ legend:{ position:'bottom', labels:{boxWidth:10} } },
-    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } }
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { color: '#eef1f7' } } },
+    scales: {
+      x: { ticks: { color: '#98a2b8' }, grid: { color: '#2a334a' } },
+      y: { ticks: { color: '#98a2b8', callback: v => '$' + (v/1000) + 'k' }, grid: { color: '#2a334a' } }
+    }
   }
 });
 
-new Chart(document.getElementById('chartSaldo'), {
+// --- Chart 2: Saldo trajectory ---
+new Chart(document.getElementById('chartBalance'), {
   type: 'line',
   data: {
     labels: months,
     datasets: [{
-      label:'Saldo Final do Mês',
-      data:[-11252.67, -4690.88, -12513.68, -17374.09, -22322.93, -22298.91],
-      borderColor: COLORS.red, backgroundColor:'rgba(255,107,107,.15)',
-      fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.red
+      label: 'Saldo de Caixa Acumulado',
+      data: saldo,
+      borderColor: '#4f8cff',
+      backgroundColor: 'rgba(79,140,255,0.15)',
+      fill: true,
+      tension: 0.3,
+      pointBackgroundColor: saldo.map(v => v < 0 ? '#ff6b6b' : '#33d19b'),
+      pointRadius: 5
     }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    plugins:{ legend:{display:false} },
-    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } }
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: '#98a2b8' }, grid: { color: '#2a334a' } },
+      y: { ticks: { color: '#98a2b8', callback: v => '$' + (v/1000) + 'k' }, grid: { color: '#2a334a' } }
+    }
   }
 });
 
-new Chart(document.getElementById('chartServicos'), {
+function resolveColor(c){
+  if (c.startsWith('var(')) {
+    return getComputedStyle(document.documentElement).getPropertyValue(c.slice(4,-1)).trim();
+  }
+  return c;
+}
+
+// --- Chart 3: Expense donut ---
+new Chart(document.getElementById('chartExpenses'), {
   type: 'doughnut',
   data: {
-    labels:['Master Business - Mentoria', 'Consultoria Individual', 'Eventos', 'Processo de Coaching', 'RaioX Financeiro'],
-    datasets:[{
-      data:[124384.38, 67418.48, 16501.36, 8500.25, 297.01],
-      backgroundColor:['#4f8cff', '#33d19b', '#ffb648', '#a78bfa', '#ff6b6b'],
-      borderColor:'#161d2e', borderWidth:2
-    }]
+    labels: expenseBreakdown.map(x => x[0]),
+    datasets: [{ data: expenseBreakdown.map(x => x[1]), backgroundColor: expenseBreakdown.map(x => resolveColor(x[2])) }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false, cutout:'62%',
-    plugins:{ legend:{display:false},
-      tooltip:{ callbacks:{ label:c=>c.label+': $ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})+' ('+(c.raw/217101.47999999998*100).toFixed(1)+'%)' } } }
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtUSD(ctx.parsed) } } },
+    cutout: '62%'
   }
 });
 
-new Chart(document.getElementById('chartDespesas'), {
+function buildList(containerId, breakdown, total, highlightFirst){
+  const container = document.getElementById(containerId);
+  breakdown.forEach((item, i) => {
+    const [label, val, color] = item;
+    const pct = (val/total*100);
+    const row = document.createElement('div');
+    row.className = 'dexp-row' + (highlightFirst && i===0 ? ' hl' : '');
+    const resolved = resolveColor(color);
+    row.innerHTML = `
+      <div class="dexp-top">
+        <span class="dexp-dot" style="background:${resolved}"></span>
+        <span class="dexp-label">${label}</span>
+        <span class="dexp-val">${fmtUSD(val)}</span>
+        <span class="dexp-pct">${pct.toFixed(1)}%</span>
+      </div>
+      <div class="dexp-bar-bg"><div class="dexp-bar" style="width:${pct}%; background:${resolved}"></div></div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+buildList('expenseList', expenseBreakdown, expenseTotal, true);
+buildList('revenueList', revenueBreakdown, revenueTotal, true);
+
+// --- Chart 4: Revenue donut ---
+new Chart(document.getElementById('chartRevenue'), {
   type: 'doughnut',
   data: {
-    labels:['Retirada de Sócios', 'Pagamento de Pessoal', 'Despesas de Marketing', 'Impostos', 'Serviços Prestados', 'Outras Despesas', 'Despesas Administrativas', 'Despesas Comerciais', 'Despesas Financeira'],
-    datasets:[{
-      data:[112781.27, 59037.02, 22314.61, 16534.55, 11817.79, 9002.25, 5668.21, 3241.92, 171.85],
-      backgroundColor:['#ffb648', '#4f8cff', '#a78bfa', '#f472b6', '#33d19b', '#ff6b6b', '#5eead4', '#94a3b8', '#64748b'],
-      borderColor:'#161d2e', borderWidth:2
-    }]
+    labels: revenueBreakdown.map(x => x[0]),
+    datasets: [{ data: revenueBreakdown.map(x => x[1]), backgroundColor: revenueBreakdown.map(x => resolveColor(x[2])) }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false, cutout:'62%',
-    plugins:{ legend:{display:false},
-      tooltip:{ callbacks:{ label:c=>c.label+': $ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})+' ('+(c.raw/240569.47000000003*100).toFixed(1)+'%)' } } }
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtUSD(ctx.parsed) } } },
+    cutout: '62%'
   }
 });
 
-new Chart(document.getElementById('chartCascata'), {
+// --- Chart 5a: Índice de Contribuição Mensal por Produto (%) ---
+new Chart(document.getElementById('chartContributionMonthly'), {
+  type: 'line',
+  data: {
+    labels: months,
+    datasets: Object.keys(contributionIndexMonthly).map(name => ({
+      label: name,
+      data: contributionIndexMonthly[name],
+      borderColor: contributionColors[name],
+      backgroundColor: contributionColors[name],
+      pointRadius: 3,
+      spanGaps: false,
+      tension: 0.25
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#eef1f7', boxWidth: 12, font: { size: 11 } } },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const name = ctx.dataset.label;
+            const idx = ctx.parsed.y;
+            const usd = contributionMonthly[name][ctx.dataIndex];
+            if (idx === null) return name + ': sem receita no mês';
+            return name + ': ' + idx.toFixed(1) + '% (' + fmtUSD(usd) + ')';
+          }
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#98a2b8' }, grid: { color: '#2a334a' } },
+      y: { ticks: { color: '#98a2b8', callback: v => v + '%' }, grid: { color: '#2a334a' } }
+    }
+  }
+});
+
+// --- Chart 5b: Margem de Contribuição por Produto ---
+new Chart(document.getElementById('chartContribution'), {
   type: 'bar',
   data: {
-    labels: ['Receita Líquida','Lucro Bruto','EBITDA','Lucro Líquido'],
-    datasets: [{
-      data:[208947.89, 178723.53, 101153.51, 101860.36],
-      backgroundColor:[COLORS.blue, COLORS.purple, COLORS.amber, COLORS.green],
-      borderRadius:6
-    }]
+    labels: contributionLabels,
+    datasets: [
+      {
+        label: 'Margem de Contribuição (US$, Total Ano)',
+        data: contributionMargin,
+        backgroundColor: contributionMargin.map(v => v < 0 ? '#ff6b6b' : '#33d19b'),
+        yAxisID: 'y'
+      },
+      {
+        label: 'Índice de Contribuição (%)',
+        type: 'line',
+        data: contributionIndex,
+        borderColor: '#ffb648',
+        backgroundColor: '#ffb648',
+        pointRadius: 5,
+        pointBackgroundColor: '#ffb648',
+        yAxisID: 'y1',
+        tension: 0
+      }
+    ]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false, indexAxis:'y',
-    plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:c=>'$ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2}) } } },
-    scales:{ x:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, y:{ grid:{display:false} } }
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#eef1f7' } },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.yAxisID === 'y1'
+            ? ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1) + '%'
+            : ctx.dataset.label + ': ' + fmtUSD(ctx.parsed.y)
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#98a2b8' }, grid: { color: '#2a334a' } },
+      y: {
+        position: 'left',
+        ticks: { color: '#98a2b8', callback: v => '$' + (v/1000) + 'k' },
+        grid: { color: '#2a334a' }
+      },
+      y1: {
+        position: 'right',
+        ticks: { color: '#98a2b8', callback: v => v + '%' },
+        grid: { display: false }
+      }
+    }
   }
 });
 
-new Chart(document.getElementById('chartLucroCaixa'), {
-  type:'bar',
-  data:{
-    labels: months,
-    datasets:[
-      { label:'Lucro Líquido (DRE)', data:[22429.03, 23964.42, 7950.55, 16266.79, 16633.78, 14615.79], backgroundColor: COLORS.green, borderRadius:5 },
-      { label:'Fluxo de Caixa do Mês', data:[-11252.67, 6561.79, -7822.8, -4860.4, -4948.85, 24.03], backgroundColor: COLORS.red, borderRadius:5 },
-      { label:'Retirada de Sócios', data:[-18500.7, -17402.63, -15773.36, -21127.2, -21582.63, -18394.76], backgroundColor: COLORS.amber, borderRadius:5 }
-    ]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    plugins:{ legend:{ position:'bottom', labels:{boxWidth:10} } },
-    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } }
-  }
+// --- Appendix table ---
+const tbody = document.getElementById('appendixBody');
+months.forEach((m, i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${m}</td><td>${fmtUSD(entradas[i])}</td><td>${fmtUSD(saidas[i])}</td><td>${fmtUSD(fluxo[i])}</td><td>${fmtUSD(saldo[i])}</td><td>${fmtUSD(receitaLiq[i])}</td><td>${fmtUSD(lucroLiq[i])}</td>`;
+  tbody.appendChild(tr);
 });
+const totalRow = document.createElement('tr');
+totalRow.className = 'total';
+const sum = arr => arr.reduce((a,b)=>a+b,0);
+totalRow.innerHTML = `<td>Total Ano</td><td>${fmtUSD(sum(entradas))}</td><td>${fmtUSD(sum(saidas))}</td><td>${fmtUSD(sum(fluxo))}</td><td>${fmtUSD(saldo[saldo.length-1])}</td><td>${fmtUSD(sum(receitaLiq))}</td><td>${fmtUSD(sum(lucroLiq))}</td>`;
+tbody.appendChild(totalRow);
 </script>
 </body>
 </html>
