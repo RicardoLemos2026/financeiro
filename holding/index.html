@@ -58,153 +58,158 @@
   tr.total td{font-weight:700; border-top:1px solid #3a4566;}
   .footer{color:var(--muted); font-size:11.5px; margin-top:24px; text-align:left; line-height:1.6;}
   @media (max-width:1100px){ .kpis{grid-template-columns:repeat(2,1fr);} .grid,.grid-32,.ccards{grid-template-columns:1fr;} }
+  .sec-title{font-size:20px; font-weight:700; margin:34px 0 4px;}
+  .sec-sub{color:var(--muted); font-size:12.5px; margin-bottom:16px;}
 </style>
 </head>
 <body>
 
 <h1>Holding — Panorama Executivo 2026</h1>
-<div class="sub">Visão consolidada de Business Connection, TS Business Solutions e Gapper USA · Janeiro a Agosto · Valores em US$</div>
-<div class="caveat">⚠ A aba própria da Gapper USA já traz câmbio mensal real e valores corretos em US$. Mas a consolidação da planilha (abas "Resumo Executivo"/"Consolidado Holding") ainda soma o valor da Gapper em R$, não em US$ — o bug de moeda não foi corrigido nessas abas. Este painel usa os valores em US$ direto da aba Gapper USA, ignorando a consolidação da planilha. Setembro (disponível só para Business Connection) foi excluído para manter as 3 empresas no mesmo período.</div>
-
+<div class="sub">Visão consolidada de Business Connection, TS Business Solutions e Gapper USA · Janeiro a Setembro · Valores em US$</div>
 <div class="kpis">
-  <div class="kpi">
-    <div class="label">Receita Líquida Anual</div>
-    <div class="value">$ 559.186,60</div>
-    <div class="note">Soma das 3 empresas, Jan-Ago</div>
-  </div>
-  <div class="kpi">
-    <div class="label">EBITDA Anual</div>
-    <div class="value pos">$ 251.582,88</div>
-    <div class="note">Margem EBITDA 45,0%</div>
-  </div>
-  <div class="kpi">
-    <div class="label">Lucro Líquido Anual</div>
-    <div class="value pos">$ 233.855,44</div>
-    <div class="note">Margem líquida 41,8%</div>
-  </div>
-  <div class="kpi">
-    <div class="label">Caixa Acumulado</div>
-    <div class="value pos">$ 88.188,04</div>
-    <div class="note">Ago/26 · ver nota sobre metodologia</div>
-  </div>
-  <div class="kpi">
-    <div class="label">Empresas Lucrativas</div>
-    <div class="value">3 <span style="font-size:14px;color:var(--muted)">de 3</span></div>
-    <div class="note">Todas positivas no período</div>
-  </div>
+  <div class="kpi"><div class="label">Receita Líquida Anual</div><div class="value">$ 678.590,69</div><div class="note">Soma das 3 empresas, Jan-Set</div></div>
+  <div class="kpi"><div class="label">EBITDA Anual</div><div class="value pos">$ 318.322,07</div><div class="note">Margem EBITDA 46,9%</div></div>
+  <div class="kpi"><div class="label">Lucro Líquido Anual</div><div class="value pos">$ 299.092,83</div><div class="note">Margem líquida 44,1%</div></div>
+  <div class="kpi"><div class="label">Caixa Acumulado</div><div class="value pos">$ 125.031,62</div><div class="note">Set/26 · ver nota sobre metodologia</div></div>
+  <div class="kpi"><div class="label">Empresas Lucrativas</div><div class="value">3 <span style="font-size:14px;color:var(--muted)">de 3</span></div><div class="note">Todas positivas no período</div></div>
 </div>
-
 <div class="story">
   <div class="icon">📈</div>
   <div>
-    <h3 class="green">A holding cresceu e continua saudável — BC segue como motor</h3>
-    <p>Em oito meses, o grupo faturou $ 559.186,60 e converteu 41,8% disso em lucro líquido ($ 233.855,44). A Business Connection segue como a maior empresa do grupo (57,1% da receita), seguida por TS Business Solutions (32,8%) e Gapper USA (10,1%). As três empresas fecharam o período no positivo.</p>
-    <p>Atenção ao número de caixa: ele mistura naturezas diferentes. O saldo da Business Connection é o saldo bancário real (herdado do fechamento do ano anterior). Já os saldos de TS e Gapper, nas planilhas de origem, são caixa operacional acumulado a partir de $0 em janeiro — não o saldo bancário de fato dessas empresas. Trate o "Caixa Acumulado" como uma aproximação, não como saldo em conta.</p>
+    <h3 class="green">Setembro foi o melhor mês do ano para a holding: receita líquida de $ 119.405, 50% acima de agosto</h3>
+    <p>Em nove meses, o grupo faturou $ 678.590,69 e converteu 44,1% disso em lucro líquido ($ 299.092,83). Só setembro trouxe $ 119.405 de receita líquida, $ 65.070 de EBITDA e $ 64.475 de lucro, com a Business Connection respondendo por 67% da receita do mês (Mentoria) e a TS por $ 33.387 (recrutamento e configuração). No acumulado, a Business Connection tem 59,0% da receita e 60,4% do EBITDA, a TS 31,9% da receita e a Gapper USA 9,1%. As três fecharam o período no positivo.</p>
+    <p>Atenção ao caixa, que mistura naturezas diferentes. O saldo da Business Connection ($ 32.290,31 em setembro) está confirmado. Os saldos de TS e Gapper são caixa operacional acumulado a partir de $0, não saldo bancário, e o de TS ($ 89.033,25) é o maior dos três. Trate o "Caixa Acumulado" como aproximação.</p>
   </div>
 </div>
-
 <div class="grid-32">
-  <div class="card">
-    <h3>Quem Sustenta o Grupo</h3>
-    <div class="desc">Contribuição de cada empresa na Receita Líquida e no EBITDA da holding</div>
-    <div class="chart-wrap"><canvas id="chartContribuicao"></canvas></div>
-  </div>
-  <div class="card">
-    <h3>Margem Líquida por Empresa</h3>
-    <div class="desc">Quanto cada empresa converte de receita em lucro</div>
-    <div class="chart-wrap"><canvas id="chartMargem"></canvas></div>
-  </div>
+  <div class="card"><h3>Quem Sustenta o Grupo</h3><div class="desc">Contribuição de cada empresa na Receita Líquida e no EBITDA da holding</div><div class="chart-wrap"><canvas id="chartContribuicao"></canvas></div></div>
+  <div class="card"><h3>Margem Líquida por Empresa</h3><div class="desc">Quanto cada empresa converte de receita em lucro</div><div class="chart-wrap"><canvas id="chartMargem"></canvas></div></div>
 </div>
-
 <div class="ccards">
-  <div class="ccard" style="border-top:3px solid #4f8cff">
-    <div class="ccard-name">Business Connection</div>
-    <div class="ccard-tag">US$ · saldo de caixa real</div>
-    <div class="ccard-row"><span>Receita Líquida</span><b>$ 319.457,27</b></div>
-    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 150.629,52</b></div>
-    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">41,6%</b></div>
-    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 18.220,32</b></div>
-  </div>
-  <div class="ccard" style="border-top:3px solid #ff6b6b">
-    <div class="ccard-name">TS Business Solutions</div>
-    <div class="ccard-tag">US$ · caixa operacional acumulado (não é saldo bancário)</div>
-    <div class="ccard-row"><span>Receita Líquida</span><b>$ 183.272,76</b></div>
-    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 66.539,63</b></div>
-    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">36,3%</b></div>
-    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 66.526,35</b></div>
-  </div>
-  <div class="ccard" style="border-top:3px solid #33d19b">
-    <div class="ccard-name">Gapper USA</div>
-    <div class="ccard-tag">US$ com câmbio mensal real (fonte: aba própria) · caixa = reserva acumulada</div>
-    <div class="ccard-row"><span>Receita Líquida</span><b>$ 56.456,57</b></div>
-    <div class="ccard-row"><span>EBITDA</span><b class="pos">$ 34.413,74</b></div>
-    <div class="ccard-row"><span>Margem Líquida</span><b class="pos">61,0%</b></div>
-    <div class="ccard-row"><span>Caixa Acumulado</span><b>$ 3.441,37</b></div>
-  </div>
+  <div class="ccard" style="border-top:3px solid #4f8cff"><div class="ccard-name">Business Connection</div><div class="ccard-tag">US$ · saldo de caixa (setembro confirmado)</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 400.037,64</b></div><div class="ccard-row"><span>EBITDA</span><b class="pos">$ 192.195,09</b></div><div class="ccard-row"><span>Margem Líquida</span><b class="pos">43,2%</b></div><div class="ccard-row"><span>Caixa Acumulado</span><b>$ 32.290,31</b></div></div>
+  <div class="ccard" style="border-top:3px solid #ff6b6b"><div class="ccard-name">TS Business Solutions</div><div class="ccard-tag">US$ · caixa operacional acumulado (não é saldo bancário)</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 216.659,93</b></div><div class="ccard-row"><span>EBITDA</span><b class="pos">$ 89.046,34</b></div><div class="ccard-row"><span>Margem Líquida</span><b class="pos">41,1%</b></div><div class="ccard-row"><span>Caixa Acumulado</span><b>$ 89.033,25</b></div></div>
+  <div class="ccard" style="border-top:3px solid #33d19b"><div class="ccard-name">Gapper USA</div><div class="ccard-tag">US$ com câmbio mensal real · caixa = reserva acumulada</div>
+    <div class="ccard-row"><span>Receita Líquida</span><b>$ 61.893,13</b></div><div class="ccard-row"><span>EBITDA</span><b class="pos">$ 37.080,64</b></div><div class="ccard-row"><span>Margem Líquida</span><b class="pos">59,9%</b></div><div class="ccard-row"><span>Caixa Acumulado</span><b>$ 3.708,06</b></div></div>
 </div>
-
 <div class="grid">
-  <div class="card">
-    <h3>EBITDA Mensal por Empresa</h3>
-    <div class="desc">Onde o resultado é construído, mês a mês</div>
-    <div class="chart-wrap"><canvas id="chartEbitdaMensal"></canvas></div>
-  </div>
-  <div class="card">
-    <h3>Evolução do Caixa Consolidado</h3>
-    <div class="desc">Soma dos saldos das 3 empresas (metodologias diferentes — ver nota acima)</div>
-    <div class="chart-wrap"><canvas id="chartCaixa"></canvas></div>
-  </div>
+  <div class="card"><h3>EBITDA Mensal por Empresa</h3><div class="desc">Onde o resultado é construído, mês a mês</div><div class="chart-wrap"><canvas id="chartEbitdaMensal"></canvas></div></div>
+  <div class="card"><h3>Evolução do Caixa Consolidado</h3><div class="desc">Soma dos saldos das 3 empresas (metodologias diferentes — ver nota acima)</div><div class="chart-wrap"><canvas id="chartCaixa"></canvas></div></div>
 </div>
-
 <div class="story">
   <div class="icon">🟢</div>
   <div>
-    <h3 class="green">Gapper USA: a operação mais rentável — por desenho, 90% do lucro vira distribuição</h3>
-    <p>A Gapper converte 61% de tudo que fatura em lucro, a melhor margem do grupo. Na planilha de origem, a política agora é explícita: <strong>10% do lucro líquido vira reserva de caixa, e 90% é distribuído aos sócios</strong> todo mês — não é uma decisão pontual, é a regra. Dos $ 34.413,74 de lucro gerado no período (em US$, com câmbio mensal real), só $ 3.441,37 ficaram retidos como reserva. Vale a diretoria confirmar se esse percentual de retenção é suficiente para a Gapper sustentar seu próprio crescimento.</p>
+    <h3 class="green">Gapper USA: segue a mais rentável, mas a receita cai desde maio e o EBITDA de setembro foi o menor do ano</h3>
+    <p>A Gapper converte 60% de tudo que fatura em lucro, a melhor margem do grupo, e a regra continua fixa: <strong>10% do lucro vira reserva de caixa e 90% é distribuído aos sócios</strong>. Dos $ 37.080,64 de lucro do período, só $ 3.708,06 ficaram retidos. O problema é a trajetória: a receita líquida foi de $ 8.262 em maio para $ 5.437 em setembro, e o EBITDA de setembro ($ 2.667) é o menor do ano. A planilha mostra 10 clientes ativos em setembro, contra 15 em agosto, mas registra 1 cliente novo e nenhum encerrado — a conta não fecha, então vale confirmar a contagem. Vale também a diretoria conferir se a retenção de 10% sustenta o crescimento da Gapper.</p>
   </div>
 </div>
-
 <div class="story">
   <div class="icon">🟠</div>
   <div>
-    <h3 class="amber">TS: um mês de abril fora da curva</h3>
-    <p>A TS fechou o período no azul ($ 66.526,35 de lucro líquido, margem de 36,3%). Mas em abril houve uma despesa operacional atípica de aproximadamente $ 23.681 — contra uma média de ~$3.000 nos demais meses — que derrubou o EBITDA do mês para <strong>-$ 8.201,68</strong>, o único resultado negativo de qualquer empresa do grupo no período. A planilha de origem não abre essa despesa em subcategorias, então vale confirmar com a TS o que gerou esse pico antes de tratá-lo como não recorrente.</p>
+    <h3 class="amber">TS: abril foi fora da curva e setembro mostra recuperação</h3>
+    <p>A TS fechou Jan–Set no azul ($ 89.033,25 de lucro líquido, margem de 41,1%). Em abril houve uma despesa operacional atípica de cerca de $ 23.681 — contra uma média de ~$3.000 nos outros meses — que derrubou o EBITDA do mês para <strong>-$ 8.201,68</strong>, o único resultado negativo do grupo no período. A planilha não abre essa despesa por subcategoria, então vale confirmar com a TS o que gerou o pico. Setembro fechou com EBITDA de $ 22.506,71, praticamente igual ao de fevereiro (o melhor do ano), com $ 13.445 vindos de Configuração e Treinamento e $ 14.361 de Recrutamento.</p>
   </div>
 </div>
-
 <div class="story">
   <div class="icon">💡</div>
   <div>
     <h3 class="amber">Leitura para a diretoria</h3>
-    <p><strong>1. Cuidado com a moeda ao consolidar:</strong> a planilha da Gapper USA veio em Reais e seria somada direto com as outras duas empresas (em dólar) se não fosse convertida — um erro que infla a receita da holding em quase 6x o valor real da Gapper. Vale revisar o processo de consolidação para evitar que isso aconteça de novo sem essa checagem.</p>
-    <p><strong>2. Alinhar os períodos de fechamento:</strong> a Business Connection já tem setembro fechado, mas TS e Gapper ainda não — os totais aqui cobrem só Jan-Ago para manter a comparação justa entre as três.</p>
-    <p><strong>3. Rever a política de distribuição da Gapper:</strong> 90% do lucro sendo distribuído por regra fixa, deixando pouca reserva própria.</p>
-    <p><strong>4. Confirmar a natureza da despesa de abril na TS</strong> antes de considerá-la um evento isolado.</p>
+    <p><strong>1. Confirmar a contagem de clientes ativos da Gapper:</strong> a planilha mostra 10 em setembro contra 15 em agosto, com 1 cliente novo e nenhum encerrado.</p>
+    <p><strong>2. Atualizar a aba da Business Connection na planilha da holding:</strong> janeiro está subestimado em $ 4.589 de receita e $ 554 de despesas. O pagamento de $ 1.600 de abril, confirmado como retirada, já está certo na aba, mas em Contas a Pagar ainda está como despesa.</p>
+    <p><strong>3. Rever a política de distribuição da Gapper:</strong> 90% do lucro por regra fixa, com receita em queda desde maio.</p>
+    <p><strong>4. Confirmar a natureza da despesa de abril na TS</strong> antes de tratá-la como evento isolado.</p>
   </div>
 </div>
 
+<div class="sec-title">Análise de metas de crescimento 2026</div>
+<div class="sec-sub">Planilha "Meta de Crescimento 2026 — 3 Empresas V3": meta mínima = faturamento de 2025 + 30%; Básica, Master e Mega Master somam +10% sobre o cenário anterior. Faturamento (receita bruta) em US$, janeiro a setembro.</div>
+<div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpi"><div class="label">Faturamento Jan–Set 2026</div><div class="value">$ 681.774</div><div class="note">+57,5% sobre Jan–Set 2025</div></div>
+  <div class="kpi"><div class="label">Meta mínima do ano (+30%)</div><div class="value">$ 851.712</div><div class="note">80,0% já realizado</div></div>
+  <div class="kpi"><div class="label">Falta no 4º tri p/ a mínima</div><div class="value pos">$ 169.938</div><div class="note">23,6% abaixo do 4º tri de 2025</div></div>
+  <div class="kpi"><div class="label">Já supera todo o 2025</div><div class="value pos">104,1%</div><div class="note">do faturamento do ano inteiro de 2025 ($ 655.163)</div></div>
+</div>
+<div class="story">
+  <div class="icon">🎯</div>
+  <div>
+    <h3 class="green">O grupo está 21% acima da meta mínima acumulada e já na linha do cenário Master</h3>
+    <p>Até setembro, o faturamento somou <strong>$ 681.774</strong>, contra $ 562.623 da meta mínima acumulada (121,2%), $ 618.886 da Básica (110,2%) e $ 680.774 da Master (100,1%). Só o Mega Master ($ 748.852) ainda está à frente (91,0%).</p>
+    <p>Para fechar o ano, o 4º trimestre precisa trazer <strong>$ 169.938</strong> para a meta mínima (24% abaixo do 4º tri de 2025, que foi de $ 222.376), <strong>$ 255.109</strong> para a Básica (+15%), <strong>$ 348.797</strong> para a Master (+57%) e <strong>$ 451.854</strong> para o Mega Master (+103%). O 4º tri pesa: foi 34% do faturamento de 2025.</p>
+  </div>
+</div>
+<div class="grid">
+  <div class="card"><h3>Faturamento mensal contra 2025 e as metas</h3><div class="desc">Barras: 2026 realizado por empresa · linhas: 2025 e cenários de meta do grupo</div><div class="chart-wrap tall"><canvas id="chartMetaMensal"></canvas></div></div>
+  <div class="card"><h3>O que falta no 4º trimestre, por cenário</h3><div class="desc">Faturamento necessário em out–dez para fechar cada meta do ano (grupo), contra o 4º tri de 2025</div><div class="chart-wrap tall"><canvas id="chartMetaQ4"></canvas></div></div>
+</div>
+<div class="card" style="margin-bottom:16px">
+  <h3>Quanto da meta anual já foi realizado</h3><div class="desc">Faturamento de Jan–Set 2026 como % da meta do ano inteiro de cada cenário</div>
+  <table><thead><tr><th>Empresa</th><th>Realizado Jan–Set</th><th>Mínima</th><th>Básica</th><th>Master</th><th>Mega Master</th></tr></thead><tbody>
+<tr><td>Business Connection</td><td>$ 399.870</td><td>80,8%</td><td>73,4%</td><td>66,7%</td><td>60,7%</td></tr>
+<tr><td>TS Business Solutions</td><td>$ 216.660</td><td>66,6%</td><td>60,6%</td><td>55,1%</td><td>50,1%</td></tr>
+<tr><td>Gapper USA</td><td>$ 65.244</td><td>208,1%</td><td>189,2%</td><td>172,0%</td><td>156,3%</td></tr>
+<tr class="total"><td>Grupo (3 empresas)</td><td>$ 681.774</td><td>80,0%</td><td>72,8%</td><td>66,2%</td><td>60,1%</td></tr>
+  </tbody></table>
+</div>
+<div class="card" style="margin-bottom:16px">
+  <h3>O que falta no 4º trimestre</h3><div class="desc">Faturamento necessário em out–dez para cada meta anual, e a variação sobre o 4º tri de 2025</div>
+  <table><thead><tr><th>Empresa</th><th>4º tri 2025</th><th>Mínima</th><th>Básica</th><th>Master</th><th>Mega Master</th></tr></thead><tbody>
+<tr><td>Business Connection</td><td>$ 115.785</td><td>$ 95.280 (−18%)</td><td>$ 144.795 (+25%)</td><td>$ 199.262 (+72%)</td><td>$ 259.175 (+124%)</td></tr>
+<tr><td>TS Business Solutions</td><td>$ 90.526</td><td>$ 108.548 (+20%)</td><td>$ 141.068 (+56%)</td><td>$ 176.841 (+95%)</td><td>$ 216.191 (+139%)</td></tr>
+<tr><td>Gapper USA</td><td>$ 16.065</td><td>já superada</td><td>já superada</td><td>já superada</td><td>já superada</td></tr>
+<tr class="total"><td>Grupo (3 empresas)</td><td>$ 222.376</td><td>$ 169.938 (−24%)</td><td>$ 255.109 (+15%)</td><td>$ 348.797 (+57%)</td><td>$ 451.854 (+103%)</td></tr>
+  </tbody></table>
+</div>
+<div class="card" style="margin-bottom:18px">
+  <h3>Crescimento sobre 2025, por trimestre</h3><div class="desc">Faturamento 2026 contra o mesmo período de 2025 (T3 = jul–set)</div>
+  <table><thead><tr><th>Empresa</th><th>T1 (jan–mar)</th><th>T2 (abr–jun)</th><th>T3 (jul–set)</th><th>Jan–Set</th></tr></thead><tbody>
+<tr><td>Business Connection</td><td>+19,8%</td><td>+41,2%</td><td>+84,9%</td><td>+50,8%</td></tr>
+<tr><td>TS Business Solutions</td><td>+70,6%</td><td>+13,8%</td><td>+27,2%</td><td>+35,7%</td></tr>
+<tr><td>Gapper USA</td><td>sem base em 2025</td><td>sem base em 2025</td><td>+187,4% (base 2025 pequena)</td><td>n/d</td></tr>
+<tr class="total"><td>Grupo (3 empresas)</td><td>+55,6%</td><td>+47,1%</td><td>+68,1%</td><td>+57,5%</td></tr>
+  </tbody></table>
+</div>
+<div class="story">
+  <div class="icon">🟠</div>
+  <div>
+    <h3 class="amber">Business Connection: bateu a meta mensal em cinco dos nove meses, e quatro deles são os últimos quatro</h3>
+    <p>A BC cumpriu a meta mínima mensal em fevereiro e de junho a setembro. No 1º trimestre ficou em 92% da meta mínima do período ($ 97.709 contra $ 106.021), no 2º em 109% e no 3º em 142%. Setembro ($ 80.459, ou 180% da mínima do mês) sozinho equivale a 70% do 4º tri de 2025 ($ 115.785). Para a Básica, o 4º tri precisa de $ 144.795 (+25% sobre 2025); para a Master, $ 199.262 (+72%). A meta mínima já exige só $ 95.280, 18% abaixo do 4º tri de 2025.</p>
+  </div>
+</div>
+<div class="story">
+  <div class="icon">🟠</div>
+  <div>
+    <h3 class="amber">TS: ficou abaixo da meta mínima por quatro meses seguidos, e setembro recolocou a empresa no jogo</h3>
+    <p>A TS bateu a mínima de janeiro a abril, ficou abaixo dela de maio a agosto (em maio e agosto até abaixo de 2025, −17% e −20%) e voltou a superá-la em setembro ($ 33.387, +127% sobre setembro de 2025). No acumulado está em 104% da mínima, mas em 95% da Básica. Dois itens — Configuração e Treinamento ($ 13.445) e Recrutamento ($ 14.361) — respondem por 83% do faturamento de setembro, então vale confirmar se esse nível se repete. A TS é a empresa mais exposta no 4º tri: para a mínima precisa de $ 108.548 (+20% sobre o 4º tri de 2025, que foi 36% do seu ano) e hoje está em 87% do faturamento de 2025 inteiro.</p>
+  </div>
+</div>
+<div class="story">
+  <div class="icon">⚪</div>
+  <div>
+    <h3 class="amber">Gapper: a meta não é comparável — a empresa só tem base de 2025 a partir de junho</h3>
+    <p>A Gapper faturou $ 65.244 de janeiro a setembro, mais que o dobro da meta mínima do ano inteiro ($ 31.354) e acima até do Mega Master ($ 41.732), porque a meta parte de um 2025 de apenas $ 24.118 (jun–dez). O crescimento percentual não diz nada aqui. O que merece atenção é a trajetória: o faturamento mensal caiu de $ 8.709 em maio para $ 5.703 em setembro. Vale redefinir a meta da Gapper com base em 2026.</p>
+  </div>
+</div>
 <div class="card">
-  <h3>Apêndice — Resultado Mensal Consolidado (Jan–Ago, US$)</h3>
-  <div class="desc">DRE consolidado da holding, mês a mês — Gapper já convertida para US$</div>
+  <h3>Apêndice — Resultado Mensal Consolidado (Jan–Set, US$)</h3>
+  <div class="desc">DRE consolidado da holding, mês a mês — as 3 empresas em US$</div>
   <table>
-    <thead>
-      <tr><th>Métrica</th><th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Total</th></tr>
-    </thead>
+    <thead><tr><th>Métrica</th><th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Set</th><th>Total</th></tr></thead>
     <tbody>
-      <tr><td>Receita Líquida</td><td>62.534,27</td><td>76.514,89</td><td>61.100,03</td><td>71.806,92</td><td>61.890,16</td><td>71.663,92</td><td>74.288,84</td><td>79.387,54</td><td>559.186,60</td></tr>
-      <tr><td>EBITDA</td><td>36.054,64</td><td>49.968,28</td><td>28.088,63</td><td class="neg">14.628,55</td><td>27.643,85</td><td>31.213,13</td><td>28.978,89</td><td>35.006,92</td><td>251.582,88</td></tr>
-      <tr><td>Lucro Líquido</td><td>20.860,21</td><td>49.899,10</td><td>27.671,15</td><td class="neg">14.430,04</td><td>27.365,26</td><td>31.015,39</td><td>27.874,06</td><td>34.740,23</td><td>233.855,44</td></tr>
-      <tr><td>Margem Líquida</td><td>33,4%</td><td>65,2%</td><td>45,3%</td><td>20,1%</td><td>44,2%</td><td>43,3%</td><td>37,5%</td><td>43,8%</td><td>41,8%</td></tr>
-      <tr class="total"><td>Caixa Consolidado (fim do mês)</td><td>30.896,35</td><td>59.527,72</td><td>66.777,67</td><td>55.321,35</td><td>56.205,39</td><td>64.471,66</td><td>70.938,61</td><td>88.188,04</td><td>88.188,04</td></tr>
+<tr><td>Receita Líquida</td><td>62.534,27</td><td>76.514,89</td><td>61.100,03</td><td>71.806,92</td><td>61.890,16</td><td>71.663,92</td><td>74.288,85</td><td>79.387,01</td><td>119.404,64</td><td>678.590,69</td></tr>
+<tr><td>EBITDA</td><td>36.054,64</td><td>49.968,28</td><td>28.088,63</td><td class="neg">16.228,55</td><td>27.643,85</td><td>31.213,13</td><td>29.048,87</td><td>35.006,38</td><td>65.069,74</td><td>318.322,07</td></tr>
+<tr><td>Lucro Líquido</td><td>20.860,21</td><td>49.889,95</td><td>27.625,48</td><td class="neg">15.990,57</td><td>27.248,51</td><td>30.980,44</td><td>27.554,22</td><td>34.468,79</td><td>64.474,66</td><td>299.092,83</td></tr>
+<tr><td>Margem Líquida</td><td>33,4%</td><td>65,2%</td><td>45,2%</td><td>22,3%</td><td>44,0%</td><td>43,2%</td><td>37,1%</td><td>43,4%</td><td>54,0%</td><td>44,1%</td></tr>
+<tr class="total"><td>Caixa Consolidado (fim do mês)</td><td>19.977,26</td><td>48.608,63</td><td>55.858,58</td><td>44.402,26</td><td>45.286,30</td><td>53.552,57</td><td>60.013,10</td><td>77.368,12</td><td>125.031,62</td><td>125.031,62</td></tr>
     </tbody>
   </table>
 </div>
-
 <div class="footer">
-  Dashboard gerado a partir de "Holding_Business_Connection_Acompanhamento.xlsx" (abas Business Connection, TS Business Solutions, Gapper USA e Consolidado Holding) · Jan–Ago/2026.<br>
-  <strong>Correção de moeda:</strong> a aba própria "Gapper USA" já traz um bloco em US$ com câmbio mensal real (5,23 em Jan, 5,15 em Fev, ..., 5,10 em Ago), documentado célula a célula. Porém as abas "Resumo Executivo" e "Consolidado Holding" da planilha ainda somam a Gapper usando um bloco separado "Equivalente em Reais" — ou seja, o bug de moeda identificado na versão anterior <strong>não foi corrigido na consolidação</strong>, só na aba individual da Gapper. Este painel ignora os totais de "Resumo Executivo"/"Consolidado Holding" e usa os valores em US$ direto da aba Gapper USA.<br>
-  <strong>Alinhamento de período:</strong> a aba Business Connection desta planilha já traz dados até Set/26, mas TS Business Solutions e Gapper USA só têm dados até Ago/26 — por isso este painel consolida apenas Jan–Ago para as 3 empresas.<br>
-  <strong>Metodologia de caixa:</strong> o saldo da Business Connection é o saldo bancário real (parte de um saldo inicial herdado do ano anterior); os saldos de TS e Gapper são caixa operacional acumulado a partir de $0, não saldo bancário de fato — a soma das três é uma aproximação.
+  Painel gerado a partir de "Holding_Acompanhamento_Financeiro_2026.xlsx" (abas Business Connection, TS Business Solutions, Gapper USA e Consolidado Holding) e, para a Business Connection, de "Financeiro_Business_Connection_atualizado.xlsx". Janeiro a setembro de 2026.<br>
+  <strong>Moeda e período:</strong> a Gapper USA entra pelo bloco em US$, com câmbio mensal real (5,23 em jan a 5,10 em ago) e 5,1803 em setembro (taxa confirmada; a nota da aba, que ainda fala em câmbio provisório, está desatualizada). As três empresas têm dados de jan a set, então a coluna de setembro da planilha agora é comparável.<br>
+  <strong>Business Connection:</strong> a aba da planilha da holding continua com diferenças em relação a Contas a Pagar e Contas a Receber. Em janeiro, a receita bruta aparece como $ 28.832,14 contra $ 33.421,46 nos lançamentos; a diferença de $ 4.589,32 é exatamente a soma das duas primeiras linhas de Contas a Receber ($ 1.676,62 e $ 2.912,70), e as despesas de janeiro estão $ 554,02 menores, que são as três primeiras linhas de Contas a Pagar. No acumulado Jan–Set, a aba mostra receita líquida de $ 395.445,64 e EBITDA de $ 188.157,13, contra $ 400.037,64 e $ 192.195,09 aqui; o total da holding na planilha ($ 673.998,71 de receita líquida e $ 314.284,11 de EBITDA) fica $ 4.592 e $ 4.038 abaixo do deste painel pelo mesmo motivo. O pagamento de $ 1.600 de abril foi confirmado como retirada de sócios, como a aba já trata; aqui ele também entra como retirada (em Contas a Pagar ainda está como despesa), então não pesa no EBITDA nem no lucro. O mútuo de $ 5.000 (concedido em agosto, devolvido em setembro) fica fora do lucro, por ser movimentação de caixa; no DRE da planilha ele entra como resultado financeiro, então o lucro de agosto aqui é $ 5.000 maior e o de setembro $ 5.000 menor do que na planilha (no acumulado dá o mesmo).<br>
+  <strong>Caixa:</strong> o saldo de setembro da Business Connection ($ 32.290,31) está confirmado; a série parte de $ 20.744,89 (31/12/25), como na planilha. Na aba da holding o saldo de setembro aparece como $ 21.489,27, porque ela parte dos lançamentos incompletos de janeiro e do Total de Entradas que omite Cashback e o recebimento de mútuo. Os saldos de TS e Gapper são caixa operacional acumulado a partir de $0.<br>
+  <strong>Planilha de metas (Meta de Crescimento 2026 — V3):</strong> usei os faturamentos e as metas da planilha, com ajustes nos pontos abaixo. (1) No Grupo, a base de 2025 do T3 soma só jul–ago (célula I14), enquanto o 2026 inclui setembro; isso gera +140,7% no trimestre e +67,0% no ano. Com a mesma base e a Gapper completa, o T3 cresce 68,1% e Jan–Set 57,5%. (2) O Grupo de 2026 deixa a Gapper de fora em jan–mai e em setembro; aqui o total inclui todos os meses. (3) A aba Gapper da planilha não tem setembro de 2026; usei a receita bruta de setembro da aba Gapper USA da planilha da holding (US$ 5.702,74). (4) O resumo da planilha compara a Gapper de jun–set/2025 com jun–ago/2026 e mostra +150%; na mesma base, jun–ago é +266% e jun–set é +221%. (5) O cabeçalho da planilha diz que os dados reais vão até agosto, mas BC e TS já trazem setembro. (6) O faturamento da BC em junho e setembro na planilha de metas está US$ 213,65 e US$ 121,50 abaixo da receita bruta do DRE (falta o Cashback); mantive os valores da planilha (diferença de 0,1%).
 </div>
 
 <script>
@@ -225,81 +230,76 @@
 
 </script>
 <script>
-const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago'];
+const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set"];
 const COLORS = { green:'#33d19b', red:'#ff6b6b', blue:'#4f8cff', amber:'#ffb648', purple:'#a78bfa', muted:'#98a2b8' };
 Chart.defaults.color = '#c7cee0';
 Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
 Chart.defaults.font.family = "-apple-system,Segoe UI,Roboto,Arial,sans-serif";
 
-// Contribuição por empresa
 new Chart(document.getElementById('chartContribuicao'), {
   type: 'bar',
-  data: {
-    labels: ['Receita Líquida','EBITDA'],
-    datasets: [
-      { label:'Business Connection', data:[319457.27, 150629.52], backgroundColor:'#4f8cff', borderRadius:4 },
-      { label:'TS Business Solutions', data:[183272.76, 66539.63], backgroundColor:'#ff6b6b', borderRadius:4 },
-      { label:'Gapper USA', data:[56456.57, 34413.74], backgroundColor:'#33d19b', borderRadius:4 }
-    ]
-  },
-  options: {
-    responsive:true, maintainAspectRatio:false, indexAxis:'y',
+  data: { labels: ['Receita Líquida','EBITDA'], datasets: [
+    { label:'Business Connection', data:[400037.64, 192195.09], backgroundColor:'#4f8cff', borderRadius:4 },
+    { label:'TS Business Solutions', data:[216659.93, 89046.34], backgroundColor:'#ff6b6b', borderRadius:4 },
+    { label:'Gapper USA', data:[61893.13, 37080.64], backgroundColor:'#33d19b', borderRadius:4 } ] },
+  options: { responsive:true, maintainAspectRatio:false, indexAxis:'y',
     plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10.5}} } },
-    scales:{ x:{ stacked:true, grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, y:{ stacked:true, grid:{display:false} } }
-  }
+    scales:{ x:{ stacked:true, grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, y:{ stacked:true, grid:{display:false} } } }
 });
 
-// Margem líquida por empresa
 new Chart(document.getElementById('chartMargem'), {
   type: 'bar',
-  data: {
-    labels: ['Business\nConnection','TS Business\nSolutions','Gapper USA'],
-    datasets: [{
-      data:[41.6, 36.3, 61.0],
-      backgroundColor:['#4f8cff','#ff6b6b','#33d19b'],
-      borderRadius:6
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
+  data: { labels: ['Business\nConnection','TS Business\nSolutions','Gapper USA'], datasets: [{ data:[43.2, 41.1, 59.9], backgroundColor:['#4f8cff','#ff6b6b','#33d19b'], borderRadius:6 }] },
+  options:{ responsive:true, maintainAspectRatio:false,
     plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:c=>c.raw.toFixed(1)+'%' } } },
-    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>v+'%' } }, x:{ grid:{display:false} } }
-  }
+    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>v+'%' } }, x:{ grid:{display:false} } } }
 });
 
-// EBITDA mensal por empresa (stacked)
 new Chart(document.getElementById('chartEbitdaMensal'), {
   type:'bar',
-  data:{
-    labels: months,
-    datasets:[
-      { label:'Business Connection', data:[22000.32, 23168.67, 9330.12, 17509.61, 17829.78, 21453.09, 16883.65, 22454.28], backgroundColor:'#4f8cff', borderRadius:3 },
-      { label:'TS Business Solutions', data:[10579.72, 22515.22, 13654.81, -8201.68, 4410.92, 4871.56, 9063.59, 9645.49], backgroundColor:'#ff6b6b', borderRadius:3 },
-      { label:'Gapper USA', data:[3474.60, 4284.39, 5103.70, 5320.62, 5403.15, 4888.48, 3031.65, 2907.15], backgroundColor:'#33d19b', borderRadius:3 }
-    ]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
+  data:{ labels: months, datasets:[
+    { label:'Business Connection', data:[22000.32, 23168.67, 9330.12, 19109.61, 17829.78, 21453.09, 16953.63, 22453.74, 39896.13], backgroundColor:'#4f8cff', borderRadius:3 },
+    { label:'TS Business Solutions', data:[10579.72, 22515.22, 13654.81, -8201.68, 4410.92, 4871.56, 9063.59, 9645.49, 22506.71], backgroundColor:'#ff6b6b', borderRadius:3 },
+    { label:'Gapper USA', data:[3474.6, 4284.39, 5103.7, 5320.62, 5403.15, 4888.48, 3031.65, 2907.15, 2666.9], backgroundColor:'#33d19b', borderRadius:3 } ] },
+  options:{ responsive:true, maintainAspectRatio:false,
     plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10.5}} } },
-    scales:{ y:{ stacked:true, grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ stacked:true, grid:{display:false} } }
-  }
+    scales:{ y:{ stacked:true, grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ stacked:true, grid:{display:false} } } }
 });
 
-// Caixa consolidado
 new Chart(document.getElementById('chartCaixa'), {
   type:'line',
-  data:{
-    labels: months,
-    datasets:[
-      { label:'Caixa Consolidado (fim do mês)', data:[30896.35, 59527.72, 66777.67, 55321.35, 56205.39, 64471.66, 70938.61, 88188.04], borderColor: COLORS.green, backgroundColor:'rgba(51,209,155,.15)', fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.green },
-      { label:'Receita Líquida do Mês', data:[62534.27, 76514.89, 61100.03, 71806.92, 61890.16, 71663.92, 74288.84, 79387.54], type:'bar', backgroundColor:'rgba(79,140,255,.35)', borderRadius:4, yAxisID:'y' }
-    ]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
+  data:{ labels: months, datasets:[
+    { label:'Caixa Consolidado (fim do mês)', data:[19977.26, 48608.63, 55858.58, 44402.26, 45286.3, 53552.57, 60013.1, 77368.12, 125031.62], borderColor: COLORS.green, backgroundColor:'rgba(51,209,155,.15)', fill:true, tension:.35, pointRadius:4, pointBackgroundColor: COLORS.green },
+    { label:'Receita Líquida do Mês', data:[62534.27, 76514.89, 61100.03, 71806.92, 61890.16, 71663.92, 74288.85, 79387.01, 119404.64], type:'bar', backgroundColor:'rgba(79,140,255,.35)', borderRadius:4, yAxisID:'y' } ] },
+  options:{ responsive:true, maintainAspectRatio:false,
     plugins:{ legend:{ position:'bottom', labels:{boxWidth:10} } },
-    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } }
-  }
+    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } } }
+});
+
+// ---- Metas ----
+const mesesAno = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+new Chart(document.getElementById('chartMetaMensal'), {
+  type:'bar',
+  data:{ labels: mesesAno, datasets:[
+    { label:'Business Connection', data:[33421.46, 35991.33, 28295.73, 38172.2, 35958.09, 46233.59, 47847.73, 53490.55, 80459.4, null, null, null], backgroundColor:'#4f8cff', stack:'r', borderRadius:2 },
+    { label:'TS Business Solutions', data:[23051.52, 33821.45, 24767.63, 25398.5, 17670.01, 17563.51, 20587.35, 20412.79, 33387.17, null, null, null], backgroundColor:'#ff6b6b', stack:'r', borderRadius:2 },
+    { label:'Gapper USA', data:[6408.02, 7092.08, 8515, 8681.39, 8708.68, 8061.18, 6146.35, 5928.87, 5702.74, null, null, null], backgroundColor:'#33d19b', stack:'r', borderRadius:2 },
+    { label:'2025', data:[42864.9, 45181.33, 41370.2, 46760.2, 50338.2, 43280.16, 54166.79, 57288.96, 51536.4, 63455.85, 82252.21, 76667.83], type:'line', borderColor:'#98a2b8', borderDash:[5,4], pointRadius:2, tension:.25, order:0 },
+    { label:'Meta mínima (+30%)', data:[55724.37, 58735.73, 53781.26, 60788.26, 65439.66, 56264.2, 70416.83, 74475.65, 66997.32, 82492.61, 106927.88, 99668.18], type:'line', borderColor:'#ffb648', pointRadius:2, tension:.25, order:0 },
+    { label:'Básica', data:[61296.81, 64609.3, 59159.39, 66867.09, 71983.63, 61890.62, 77458.51, 81923.21, 73697.05, 90741.87, 117620.66, 109635.0], type:'line', borderColor:'#a78bfa', pointRadius:2, tension:.25, order:0 },
+    { label:'Master', data:[67426.49, 71070.23, 65075.32, 73553.79, 79181.99, 68079.68, 85204.36, 90115.53, 81066.75, 99816.05, 129382.73, 120598.5], type:'line', borderColor:'#eef1f7', borderDash:[2,3], pointRadius:2, tension:.25, order:0 } ] },
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10}} } },
+    scales:{ y:{ stacked:true, grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ stacked:true, grid:{display:false} } } }
+});
+new Chart(document.getElementById('chartMetaQ4'), {
+  type:'bar',
+  data:{ labels:['Mínima','Básica','Master','Mega Master'], datasets:[
+    { label:'Necessário em out–dez', data:[169937.62, 255108.81, 348797.13, 451854.27], backgroundColor:['#ffb648','#a78bfa','#4f8cff','#ff6b6b'], borderRadius:6 },
+    { label:'4º tri de 2025', data:[222375.9, 222375.9, 222375.9, 222375.9], type:'line', borderColor:'#eef1f7', borderDash:[5,4], pointRadius:0, order:0 } ] },
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ position:'bottom', labels:{boxWidth:10} }, tooltip:{ callbacks:{ label:c=>c.dataset.label+': $'+Math.round(c.parsed.y).toLocaleString('en-US') } } },
+    scales:{ y:{ grid:{color:'rgba(255,255,255,.05)'}, ticks:{ callback:v=>'$'+v/1000+'k' } }, x:{ grid:{display:false} } } }
 });
 </script>
 </body>
