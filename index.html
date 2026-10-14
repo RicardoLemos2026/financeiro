@@ -78,42 +78,41 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 <body>
 
 <h1>Business Connection — Painel Financeiro</h1>
-<div class="subtitle">Janeiro a Agosto de 2026 · Valores em US$ · Fluxo de Caixa Anual &amp; DRE</div>
+<div class="subtitle">Janeiro a Setembro de 2026 · Valores em US$ · Fluxo de Caixa Anual &amp; DRE (com correções — ver rodapé)</div>
 
 <div class="kpis">
   <div class="kpi">
     <div class="label">Receita Líquida</div>
-    <div class="value">$319.457</div>
+    <div class="value">$400.038</div>
     <div class="note">acumulado no período</div>
   </div>
   <div class="kpi">
     <div class="label">Lucro Líquido</div>
-    <div class="value pos">$132.916</div>
-    <div class="note">margem líquida de 41,6%</div>
+    <div class="value pos">$172.979</div>
+    <div class="note">margem líquida de 43,2%</div>
   </div>
   <div class="kpi">
     <div class="label">EBITDA</div>
-    <div class="value pos">$150.630</div>
-    <div class="note">margem EBITDA de 47,2%</div>
+    <div class="value pos">$192.195</div>
+    <div class="note">margem EBITDA de 48,0%</div>
   </div>
   <div class="kpi">
-    <div class="label">Saldo de Caixa (Ago)</div>
-    <div class="value pos">$18.222</div>
-    <div class="note">partiu de $31.664 em Jan</div>
+    <div class="label">Saldo de Caixa (Set)</div>
+    <div class="value pos">$32.290</div>
+    <div class="note">partiu de $20.745 em Jan</div>
   </div>
   <div class="kpi">
     <div class="label">Retirada de Sócios</div>
-    <div class="value neg">$140.353</div>
-    <div class="note">106% do lucro líquido gerado</div>
+    <div class="value neg">$161.434</div>
+    <div class="note">93% do lucro líquido gerado</div>
   </div>
 </div>
 
 <div class="story">
   <div class="icon">🟠</div>
   <div>
-    <h3 class="amber">A reserva de caixa está encolhendo, mês após mês</h3>
-    <p>Nos oito meses do ano, a Business Connection lucrou <strong>$132.916</strong> (margem líquida de 41,6%) e gerou <strong>$126.911</strong> em caixa operacional. Mas os sócios retiraram <strong>$140.353</strong> no mesmo período — <strong>106% do lucro gerado</strong>. O caixa não ficou negativo porque o ano começou com uma reserva de <strong>$31.664</strong> (saldo inicial de janeiro), mas essa reserva já caiu para <strong>$18.222</strong> em agosto — uma queda de $13.442 em 8 meses. No ritmo atual de retirada, essa reserva se esgota em pouco mais de um ano.</p>
-    <p>Nota: os dados de agosto ainda podem subir um pouco — cerca de 12,5% do previsto para o mês em receita ainda não foi lançado como realizado (recebíveis em aberto). Setembro em diante ainda não tem lançamentos suficientes para entrar no painel.</p>
+    <h3 class="amber">O caixa passou a maior parte do ano perto de zero — setembro foi o que o recuperou</h3>
+    <p>Em nove meses, a Business Connection lucrou <strong>$172.979</strong> (margem líquida de 43,2%) e os sócios retiraram <strong>$161.434</strong> — <strong>93% do lucro</strong>. O caixa partiu de $20.745, ficou praticamente em zero em <strong>maio (-$18)</strong> e <strong>julho (-$18)</strong> e fechou agosto em $7.400. Só em setembro, o mês mais forte do ano (receita de $80.581), o saldo subiu para <strong>$32.290</strong> — setembro sozinho acrescentou cerca de $24.890 ao caixa, já descontada a retirada do mês. Esse saldo inclui ainda a devolução de um mútuo de $5.000 que havia saído em agosto.</p>
   </div>
 </div>
 
@@ -135,14 +134,14 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
   <div class="icon">🟠</div>
   <div>
     <h3 class="amber">Receita concentrada em duas frentes</h3>
-    <p>Master Business (mentoria) e Consultoria Individual juntas respondem por <strong>90% da receita de produtos</strong> ($276.153 de $305.706). Mentoria isolada já é <strong>57%</strong> do faturamento. Isso significa que a saúde financeira do negócio está fortemente atrelada à performance dessas duas ofertas — uma queda em qualquer uma delas afeta a maior parte da receita.</p>
+    <p>Master Business (mentoria) e Consultoria Individual juntas respondem por <strong>84% da receita</strong> ($334.466 de $400.205). Mentoria isolada é <strong>54%</strong> do faturamento — e setembro, o melhor mês do ano, teve $41.226 só de Mentoria. A saúde financeira do negócio segue muito atrelada a essas duas ofertas e à sazonalidade de Mentoria.</p>
   </div>
 </div>
 
 <div class="featured">
   <div class="featured-head">
     <h2>Composição das Saídas de Caixa</h2>
-    <div class="badge">42% é retirada de sócios</div>
+    <div class="badge">41% é retirada de sócios</div>
   </div>
   <div class="featured-body">
     <div class="chart-wrap"><canvas id="chartExpenses"></canvas></div>
@@ -153,8 +152,8 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 <div class="story">
   <div class="icon">🔴</div>
   <div>
-    <h3 class="red">Eventos davam receita, mas custavam mais do que traziam</h3>
-    <p>Até julho, Eventos haviam gerado <strong>$18.431</strong> em receita — mas, ao descontar seus custos diretos, a margem de contribuição do produto era <strong>negativa em -$5.004</strong>. Em agosto, Eventos somaram mais <strong>$1.905</strong> em receita ($20.269 no acumulado Jan-Ago), mas a planilha desta atualização não traz a aba de Margem de Contribuição, então não foi possível recalcular o custo direto do mês. O gráfico abaixo ainda reflete a última margem de contribuição disponível (Jan-Jul) — vale reconfirmar se o problema de rentabilidade em Eventos persistiu em agosto.</p>
+    <h3 class="red">Eventos: em setembro, o custo do evento passou da receita</h3>
+    <p>Eventos geraram <strong>$30.300</strong> em receita no período, sendo <strong>$10.031 só em setembro</strong>. Nesse mês, as despesas com eventos foram de <strong>$11.451</strong> — acima da receita, ou seja, <strong>-$1.420</strong> no mês. O DRE da planilha agora inclui esse custo. A aba de Margem de Contribuição atual não cobre Eventos, então não há margem mensal para acompanhar; na versão anterior da planilha, Eventos tinha margem de contribuição negativa (-$5.004 até julho). O resultado de setembro sugere que o problema persiste — vale confirmar.</p>
   </div>
 </div>
 
@@ -175,21 +174,21 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 <div class="story">
   <div class="icon">🟢</div>
   <div>
-    <h3 class="green">Uma nova linha de receita começou a aparecer: "IA for Business"</h3>
-    <p>Em julho e agosto, passaram a entrar recebimentos sob a categoria <strong>"IA for Business"</strong> — $2.931 em julho e <strong>$9.347 em agosto</strong>, quase triplicando de um mês para o outro. No total já são <strong>$12.278</strong>, cerca de 3,8% da receita de agosto. Essa categoria estava escondida dentro de "Outras Receitas" no resumo da planilha, junto com Cashback — separei aqui porque, dado o ritmo de crescimento, vale acompanhar como uma linha própria daqui pra frente. Vale confirmar se isso é um produto novo, uma parceria, ou receita de outra unidade de negócio sendo lançada nesta planilha.</p>
+    <h3 class="green">"IA for Business" segue crescendo e já é uma linha relevante</h3>
+    <p>Os recebimentos de <strong>IA for Business</strong> foram de $2.931 em julho, <strong>$9.347 em agosto</strong> e <strong>$11.148 em setembro</strong> — $23.426 no acumulado, cerca de 5,9% da receita do período. Na planilha essa linha aparece com o rótulo "Parcerias" e fica misturada em "Outras Receitas"; aqui está separada. Ainda não há custo direto associado a ela em Contas a Pagar, então o resultado dessa linha é receita pura por enquanto. Vale confirmar se é produto próprio, parceria ou receita de outra unidade de negócio.</p>
   </div>
 </div>
 
-<div class="section-title">Margem de Contribuição por Produto <span style="text-transform:none; font-weight:400; font-size:12px;">(dados de Jan–Jul, não incluídos na planilha desta atualização)</span></div>
+<div class="section-title">Margem de Contribuição por Produto <span style="text-transform:none; font-weight:400; font-size:12px;">(a aba cobre só Master Business e Consultoria Individual; custo da Consultoria sem o prestador PWR, como na planilha)</span></div>
 <div class="grid">
   <div class="card">
     <h3>Mensal — Índice de Contribuição (%)</h3>
-    <div class="desc">Margem de contribuição como % da receita de cada produto, mês a mês</div>
+    <div class="desc">Margem de contribuição como % da receita, mês a mês (Jan–Set, realizado)</div>
     <div class="chart-wrap"><canvas id="chartContributionMonthly"></canvas></div>
   </div>
   <div class="card">
-    <h3>Acumulado (Total Ano)</h3>
-    <div class="desc">Quanto cada produto sobra depois do custo direto — Eventos é o único no vermelho</div>
+    <h3>Acumulado (Jan–Set)</h3>
+    <div class="desc">Margem em US$ e índice (%) depois do custo direto de mão de obra</div>
     <div class="chart-wrap"><canvas id="chartContribution"></canvas></div>
   </div>
 </div>
@@ -207,11 +206,13 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 </div>
 
 <footer>
-  Painel atualizado a partir de "Fluxo_de_Caixa_Diario.xlsx" (abas "Fluxo de Caixa Anual" e "DRE"). Dados de Jan–Ago/2026, coluna "Realizado" (Set–Dez ainda sem lançamentos suficientes).
-  Saldo inicial de caixa em janeiro: $31.663,98 (saldo carregado do fechamento anterior). Fluxo de Caixa Mensal, Composição das Saídas e Receita por Produto
-  refletem a aba "Fluxo de Caixa Anual"; Receita Líquida, EBITDA e Lucro Líquido refletem a aba "DRE" (regime de caixa simplificado, retirada de sócio não entra no DRE).
-  A seção de Margem de Contribuição por Produto não foi atualizada nesta rodada — essa planilha não traz essa aba — e ainda reflete dados de Jan–Jul.
-  Correção: a receita "IA for Business" (categoria nova em Contas a Receber, $12.278,16 em Jul–Ago) estava sendo agregada em "Outras Receitas" no resumo da planilha; foi destacada como linha própria neste painel.
+  Painel atualizado a partir de "Financeiro_Business_Connection_atualizado.xlsx" (abas DRE, Fluxo de Caixa Anual, Margem de Contribuição e Fluxo de Caixa, conferidas contra Contas a Pagar e Contas a Receber). Dados de Jan–Set/2026, coluna Realizado; outubro (parcial) fica fora do painel.<br>
+  <strong>Abril:</strong> um pagamento de US$ 1.600 (20/04) foi confirmado como retirada de sócios, mas em Contas a Pagar e no DRE ainda está como despesa; aqui ele conta como retirada, então o EBITDA e o lucro de abril ficam US$ 1.600 maiores do que no DRE, e a retirada de abril e do ano também.<br>
+  <strong>DRE:</strong> agora está consistente com os lançamentos (inclui as Despesas com Eventos de set, a Mentoria de jan e a dedução de ISS/PIS/COFINS de ago). A planilha lança o mútuo (US$ 5.000 concedido em ago e devolvido em set) como resultado financeiro; aqui ele fica fora do lucro, porque é movimentação de caixa e não resultado. No acumulado o efeito é zero, mas o lucro de ago fica US$ 5.000 maior e o de set US$ 5.000 menor do que no DRE.<br>
+  <strong>Ainda com problema na planilha:</strong> (1) o Total de Entradas do Fluxo de Caixa Anual soma só Receita de Serviços + Parcerias e omite Cashback e o recebimento de mútuo; recalculei as entradas a partir de Contas a Receber. (2) A Margem de Contribuição ignora a primeira linha de Contas a Receber (Mentoria de jan aparece US$ 1.676,62 menor; usei o valor correto) e não subtrai o prestador PWR do custo da Consultoria, apesar da nota da própria aba: com o PWR (US$ 16.750 de jun a set), o índice da Consultoria em set cai de 86% para 64%. (3) O bloco diário da aba Fluxo de Caixa está desatualizado em 19/09 (mostra US$ 89 de entradas; os lançamentos somam US$ 4.751). (4) Na aba Análise por Bloco de Custo, o custo de Labor Consultoria soma duas vezes o mesmo critério (o SUMIFS não diferencia maiúsculas de minúsculas), então aparece em dobro.<br>
+  <strong>Saldo de caixa:</strong> a série parte do saldo de 31/12/25 da planilha (US$ 20.744,89) e fecha setembro em <strong>US$ 32.290</strong>. Saldo inicial e saldo de setembro confirmados.<br>
+  
+  O rótulo "(R$)" nas linhas de Margem de Contribuição da aba é um resquício; os valores estão em US$.
 </footer>
 
 <script>
@@ -232,48 +233,38 @@ footer{color:var(--muted); font-size:11.5px; margin-top:30px; line-height:1.6;}
 
 </script>
 <script>
-const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago"];
-const entradas = [33421.46, 35991.33, 28295.73, 38172.20, 35958.09, 46447.24, 47847.73, 53381.86];
-const saidas = [26666.14, 12831.81, 19433.02, 20901.08, 18523.85, 25226.94, 32452.41, 36569.46];
-const fluxo = [6755.32, 23159.52, 8862.71, 17271.12, 17434.24, 21220.30, 15395.32, 16812.40];
-const saldo = [19918.60, 25675.49, 18755.99, 14968.78, 10901.38, 13807.15, 10907.23, 18222.31];
-const receitaLiq = [33421.46, 35991.33, 28295.73, 38172.20, 35958.09, 46447.24, 47847.73, 53323.49];
-const lucroLiq = [6755.32, 23168.67, 8908.38, 17310.59, 17550.99, 21255.25, 15778.71, 22188.24];
-const ebitda = [22000.32, 23168.67, 9330.12, 17509.61, 17829.78, 21453.09, 16883.65, 22454.28];
+const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set"];
+const entradas = [33421.46, 35991.33, 28295.73, 38172.2, 35958.09, 46447.24, 47847.73, 53490.55, 85580.87];
+const saidas = [26666.14, 12831.81, 19433.02, 19301.08, 18523.85, 25226.94, 32388.85, 36574.55, 41280.04];
+const fluxo = [6755.32, 23159.52, 8862.71, 18871.12, 17434.24, 21220.3, 15458.87, 16916.0, 44300.83];
+const saldo = [8999.51, 14756.4, 7836.91, 4049.7, -17.7, 2888.07, -18.27, 7400.4, 32290.31];
+const receitaLiq = [33421.46, 35991.33, 28295.73, 38172.2, 35958.09, 46447.24, 47847.73, 53322.96, 80580.9];
+const lucroLiq = [6755.32, 23159.52, 8862.71, 18871.12, 17434.24, 21220.3, 15458.87, 21916.0, 39300.86];
+const ebitda = [22000.32, 23168.67, 9330.12, 19109.61, 17829.78, 21453.09, 16953.63, 22453.74, 39896.13];
 
-const revenueBreakdown = [["Master Business - Mentoria", 174071.46, "var(--blue)"], ["Consultoria Individual", 102081.52, "var(--green)"], ["Eventos", 20269.40, "var(--amber)"], ["IA for Business", 12278.16, "#4fd1c5"], ["Processo de Coaching", 8986.97, "var(--purple)"], ["Cashback", 1531.12, "#8892a6"], ["RaioX Financeiro", 297.0, "var(--muted)"]];
-const revenueTotal = 319515.63;
-const expenseBreakdown = [["Retirada (sócios)", 140352.60, "var(--red)"], ["Pagamento de Pessoal", 89987.20, "var(--blue)"], ["Marketing", 31928.49, "var(--amber)"], ["Serviços Prestados (terceiros)", 26467.15, "var(--purple)"], ["Impostos", 17953.58, "#c9a4f5"], ["Despesas Administrativas", 12508.47, "#5fa8e0"], ["Despesas Financeiras", 5823.37, "#8892a6"], ["Outras Despesas", 4657.66, "var(--muted)"], ["Despesas Comerciais", 3278.77, "#7fd6b0"]];
-const expenseTotal = 332957.29;
+const revenueBreakdown = [["Master Business - Mentoria", 215297.31, "var(--blue)"], ["Consultoria Individual", 119168.7, "var(--green)"], ["Eventos", 30300.43, "var(--amber)"], ["IA for Business", 23426.31, "#4fd1c5"], ["Processo de Coaching", 9763.17, "var(--purple)"], ["Cashback", 1761.31, "#8892a6"], ["RaioX Financeiro", 487.99, "var(--muted)"]];
+const revenueTotal = 400205.22;
+const expenseBreakdown = [["Retirada (sócios)", 161433.5, "var(--red)"], ["Pagamento de Pessoal", 106459.37, "var(--blue)"], ["Marketing", 35387.61, "var(--amber)"], ["Serviços Prestados (terceiros)", 31920.85, "var(--purple)"], ["Impostos e Encargos", 18227.88, "#c9a4f5"], ["Administrativas", 16286.9, "#5fa8e0"], ["Despesas com Eventos", 11451.37, "#ff9f6b"], ["Mútuo concedido (devolvido em set)", 5000.0, "#4fd1c5"], ["Outras Despesas", 3057.66, "var(--muted)"], ["Comerciais", 3278.77, "#7fd6b0"], ["Financeiras (tarifas/IOF)", 1155.87, "#8892a6"]];
+const expenseTotal = 393659.78;
 
-// Margem de Contribuição (aba "Margem de Contribuição", Total Ano por produto)
-const contributionLabels = ["Master Business - Mentoria", "Consultoria Individual", "Processo de Coaching", "RaioX Financeiro", "Eventos"];
-const contributionMargin = [94077.22, 41288.68, 2030.39, 218.49, -5004.50];
-const contributionIndex = [62.4, 48.8, 21.8, 73.6, -27.2]; // margem / receita do produto, em %
-
-// Margem de Contribuição mensal por produto (Jan-Jul, mesma aba)
+// Margem de Contribuição (aba "Margem de Contribuição", Real Jan-Set; Mentoria jan corrigida)
+const contributionLabels = ["Master Business - Mentoria", "Consultoria Individual", "Total (2 produtos)"];
+const contributionMargin = [174373.42, 101588.15, 275961.57];
+const contributionIndex = [81.0, 85.2, 82.5]; // margem / receita, em %
 const contributionMonthly = {
-  "Master Business - Mentoria": [10134.14, 19627.89, 8578.99, 12449.51, 12694.46, 14001.42, 16590.81],
-  "Consultoria Individual": [7849.21, 3950.23, 2169.47, 6011.61, 5823.29, 11068.19, 4416.67],
-  "Processo de Coaching": [508.89, 278.58, 219.04, 482.43, 544.49, -39.50, 36.45],
-  "RaioX Financeiro": [0, 0, 0, 0, 218.49, 0, 0],
-  "Eventos": [2371.01, 0, -1380.08, -1424.82, -2371.04, -1266.60, -932.98]
+  "Master Business - Mentoria": [15665.37, 22365.69, 13284.03, 15739.26, 18402.14, 17918.26, 19525.5, 16557.86, 34915.31],
+  "Consultoria Individual": [9819.4, 7958.01, 5788.69, 9715.23, 8196.26, 16540.77, 14169.48, 14702.43, 14697.88],
+  "Total (2 produtos)": [25484.77, 30323.7, 19072.72, 25454.49, 26598.4, 34459.03, 33694.99, 31260.3, 49613.18]
 };
 const contributionColors = {
   "Master Business - Mentoria": "#4f8cff",
   "Consultoria Individual": "#33d19b",
-  "Processo de Coaching": "#a78bfa",
-  "RaioX Financeiro": "#98a2b8",
-  "Eventos": "#ff6b6b"
+  "Total (2 produtos)": "#ffb648"
 };
-// Índice de Contribuição mensal por produto (%) = margem / receita do produto no mês
-// null = mês sem receita do produto (Fev e Jun/Jul de RaioX, Fev de Eventos) — índice indefinido, não é zero
 const contributionIndexMonthly = {
-  "Master Business - Mentoria": [67.8, 69.1, 49.3, 63.2, 56.5, 65.1, 62.9],
-  "Consultoria Individual": [64.4, 60.8, 30.2, 50.4, 54.5, 58.5, 25.8],
-  "Processo de Coaching": [39.2, 14.5, 11.4, 28.0, 48.4, -7.9, 4.6],
-  "RaioX Financeiro": [null, null, null, null, 73.6, null, null],
-  "Eventos": [44.9, null, -87.5, -30.9, -193.9, -33.3, -48.3]
+  "Master Business - Mentoria": [94.6, 89.3, 76.3, 79.9, 81.9, 77.9, 76.4, 68.0, 84.7],
+  "Consultoria Individual": [91.1, 89.2, 80.6, 81.4, 76.7, 87.4, 85.6, 86.0, 86.0],
+  "Total (2 produtos)": [93.2, 89.3, 77.6, 80.5, 80.3, 82.2, 80.0, 75.4, 85.1]
 };
 
 function fmtUSD(n){
@@ -397,6 +388,7 @@ new Chart(document.getElementById('chartContributionMonthly'), {
       backgroundColor: contributionColors[name],
       pointRadius: 3,
       spanGaps: false,
+      borderDash: name.startsWith('Total') ? [6,4] : [],
       tension: 0.25
     }))
   },
